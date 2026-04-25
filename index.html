@@ -894,6 +894,75 @@
     letter-spacing: 0.05em;
   }
 
+  /* SCREEN NARRATIVE */
+  .case-screen-full {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .case-screen-reverse {
+    direction: rtl;
+  }
+
+  .case-screen-reverse > * {
+    direction: ltr;
+  }
+
+  .screen-narrative {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .screen-step {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--line);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .screen-narrative h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .screen-narrative p {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  .screen-image {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .screen-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    .case-screen-full {
+      grid-template-columns: 1fr;
+    }
+    .case-screen-reverse {
+      direction: ltr;
+    }
+  }
+
   /* CHAT SECTION */
   .chat-section {
     padding: 5rem 4rem;
@@ -1685,99 +1754,111 @@
 <!-- PAGE: CASE 02 -->
 <div id="page-case02" class="page">
   <button class="back-btn" onclick="showPage('home', event)">← Voltar para cases</button>
-<!-- CASE 02 DETAIL - CONCILIAÇÃO -->
-<section class="case-detail-section" id="case02-detail" style="background: var(--bg-alt);">
+
+<section class="case-detail-section" id="case02-detail" style="background: var(--white);">
   <div class="section-header">
-    <span class="section-label">Case 02 · Aprofundamento</span>
+    <span class="section-label">Case 02 · Conciliação de Módulos</span>
     <h2>O processo</h2>
   </div>
 
+  <!-- CONTEXTO E PROBLEMA -->
   <div class="detail-grid">
     <div class="detail-block">
       <h4>O problema de negócio</h4>
-      <p>
-        Divergências de custo e estoque sem causa raiz identificada geravam distorções
-        financeiras, risco fiscal e sobrecarga nos times de suporte, serviço e produto.
-        O cliente não sabia onde, por quê ou como resolver — esperava que o sistema
-        respondesse. O problema era recorrente, não escalável e custoso para ambos os lados.
-      </p>
+      <p>Divergências de custo e estoque sem causa raiz identificada geravam distorções financeiras, risco fiscal e sobrecarga nos times de suporte, serviço e produto. O cliente não sabia onde, por quê ou como resolver — esperava que o sistema respondesse. O problema era recorrente, não escalável e custoso para ambos os lados.</p>
     </div>
     <div class="detail-block">
       <h4>Metodologia que defini</h4>
-      <p>
-        Estruturei uma pesquisa em duas camadas antes de falar com clientes: primeiro um
-        mapeamento interno com times de suporte, serviço e produto para entender como o
-        sistema gerava as divergências e o que poderia ser mitigado. Com esse mapa de
-        hipóteses estruturadas, chegamos aos clientes com perguntas mais precisas e saímos
-        com respostas mais acionáveis.
-      </p>
+      <p>Estruturei uma pesquisa em duas camadas antes de falar com clientes: primeiro um mapeamento interno com times de suporte, serviço e produto para entender como o sistema gerava as divergências. Com esse mapa de hipóteses estruturadas, chegamos aos clientes com perguntas mais precisas e saímos com respostas mais acionáveis.</p>
     </div>
     <div class="detail-block">
       <h4>Meu papel</h4>
-      <p>
-        Liderei o processo completo: definição da metodologia de pesquisa, facilitação dos
-        mapeamentos internos, criação dos protótipos de conceito (IA) e alta fidelidade
-        (Figma + Design System), condução dos testes com roteiro estruturado e apresentação
-        dos resultados e recomendações para PM e tribe leads.
-      </p>
+      <p>Liderei o processo completo: definição da metodologia, facilitação dos mapeamentos internos, prototipação em IA e Figma com Design System, condução dos testes com roteiro estruturado e apresentação dos resultados para PM e tribe leads.</p>
     </div>
   </div>
 
+  <!-- VALIDAÇÃO -->
   <div class="detail-grid" style="margin-top: 1.5rem;">
     <div class="detail-block">
       <h4>Validação interna — 14 participantes</h4>
-      <p>
-        Times de suporte, prime e serviço foram validadores essenciais — são eles que
-        hoje resolvem manualmente o que o produto vai automatizar. 100% enfatizou que
-        a análise eficiente exige o nível de item (produto), confirmando uma das
-        decisões centrais de navegação. "Parabéns pela iniciativa — é nosso calcanhar
-        de Aquiles. Ter a comparação por CGO é uma vitória." — Edvaldo, Suporte Prime.
-      </p>
+      <p>Times de suporte, prime e serviço foram validadores essenciais. 100% enfatizou que a análise eficiente exige o nível de item, confirmando a decisão central de navegação. <em>"Parabéns pela iniciativa — é nosso calcanhar de Aquiles. Ter a comparação por CGO é uma vitória."</em> — Edvaldo, Suporte Prime.</p>
     </div>
     <div class="detail-block">
       <h4>Validação com clientes — 6 participantes</h4>
-      <p>
-        83% teve alta aderência ao uso da nova aplicação. 67% afirmou que a ferramenta
-        vai reduzir o tempo de análise para o fechamento mensal. O perfil inicial
-        incluía maioria de detratores do processo atual — o que reforça a urgência
-        da solução e a relevância da adoção. "Ficou excelente a visão do estoque
-        negativo." — Cliente Costa.
-      </p>
+      <p>83% teve alta aderência ao uso. 67% afirmou que vai reduzir o tempo de análise para o fechamento mensal. <em>"Ficou excelente a visão do estoque negativo."</em> — Cliente participante.</p>
     </div>
     <div class="detail-block">
-      <h4>Teste de conceito · Teste de usabilidade</h4>
-      <p>
-        Duas fases distintas: protótipo de média fidelidade gerado com IA para validar
-        conceito com gerentes, e protótipo de alta fidelidade no Figma com Design System
-        da TOTVS para validar usabilidade com contadores e analistas. Roteiro com tarefas
-        críticas e perguntas qualitativas em cada fase.
-      </p>
+      <h4>Duas fases de teste</h4>
+      <p>Protótipo de média fidelidade com IA para validar conceito com gerentes. Protótipo de alta fidelidade no Figma para validar usabilidade com contadores e analistas. Roteiro com tarefas críticas e perguntas qualitativas em cada fase.</p>
     </div>
   </div>
 
-  <div class="decision-card" style="margin-top: 2rem;">
-    <h4>Decisão de design — drill-down como princípio central</h4>
-    <p>
-      A pesquisa mostrou que o maior obstáculo não era encontrar a divergência — era
-      rastreá-la até a origem. Desenhamos uma navegação hierárquica que parte da visão
-      consolidada da empresa e permite "explodir" os dados até o nível do item individual,
-      com ações corretivas disponíveis em cada camada. Essa estrutura não foi uma escolha
-      estética — foi a resposta direta ao problema de rastreabilidade que nenhuma planilha
-      conseguia resolver.
-    </p>
+  <!-- NARRATIVA DAS TELAS -->
+  <div style="margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--line);">
+    <p style="font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 0.5rem;">A solução</p>
+    <h3 style="font-family: 'DM Serif Display', serif; font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 0.75rem;">Da visão macro à ação no item</h3>
+    <p style="font-size: 0.95rem; color: var(--ink-muted); max-width: 640px; line-height: 1.7;">O produto foi desenhado para que o usuário partisse de uma visão consolidada dos três estoques e pudesse navegar até o item — identificando a divergência, entendendo a causa e agindo diretamente da interface.</p>
   </div>
 
-  <div class="decision-card" style="margin-top: 1rem; border-left-color: #888; background: var(--bg);">
-    <h4>Decisão de escopo — o que ficou fora do MVP e por quê</h4>
-    <p>
-      Itens como visão do produto no contábil, uso de IA para análise automatizada e
-      demonstração de parametrizações foram mantidos fora do MVP com raciocínio explícito:
-      a complexidade técnica era alta e o produto precisava de maturidade em uso antes
-      de avançar. Cada item foi documentado com justificativa — não foram descartados,
-      foram postergados com critério. Isso protegeu o escopo do lançamento e evitou
-      entregas incompletas que poderiam comprometer a adoção.
-    </p>
+  <!-- TELA 1 -->
+  <div class="case-screen-full" style="margin-top: 2.5rem;">
+    <div class="screen-narrative">
+      <span class="screen-step">01</span>
+      <h4>Visão geral — os três estoques em uma tela</h4>
+      <p>A home do produto centraliza os valores de estoque contábil, fiscal e gerencial com as variações percentuais em relação ao contábil — base de referência para análises. Abaixo, as análises críticas prontas: estoque negativo, produtos sem custo, movimentações internas e devoluções de fornecedor. O usuário chega e já sabe onde há problema.</p>
+      <div class="decision-card" style="margin-top: 1rem;">
+        <h4>Decisão de design</h4>
+        <p>Colocar os três estoques lado a lado com variação percentual foi uma decisão direta dos testes — os usuários precisavam da comparação instantânea, não de navegar entre relatórios separados. A divergência precisa saltar aos olhos.</p>
+      </div>
+    </div>
+    <div class="screen-image">
+      <img src="conciliacao.png" alt="Análise de estoque — visão geral com posições e análises críticas">
+    </div>
   </div>
+
+  <!-- TELA 2 -->
+  <div class="case-screen-full case-screen-reverse" style="margin-top: 3rem;">
+    <div class="screen-narrative">
+      <span class="screen-step">02</span>
+      <h4>Estoque negativo — identificar e agir</h4>
+      <p>Ao entrar no card de estoque negativo, o usuário vê a lista completa de produtos com quantidade e valor do estoque negativo. A decisão de design central deste case: ele pode solicitar o inventário diretamente da interface, sem precisar sair da tela ou acionar outro sistema.</p>
+      <div class="decision-card" style="margin-top: 1rem;">
+        <h4>Decisão de design</h4>
+        <p>A ação de solicitar inventário estar disponível direto na listagem foi um insight dos testes — o fluxo anterior exigia que o usuário saísse do contexto para resolver. Manter a ação no mesmo lugar onde o problema é identificado reduz o tempo de resolução e elimina etapas desnecessárias.</p>
+      </div>
+    </div>
+    <div class="screen-image">
+      <img src="estoque_negativo.png" alt="Produtos com estoque negativo — listagem com ação de solicitar inventário">
+    </div>
+  </div>
+
+  <!-- TELA 3 -->
+  <div class="case-screen-full" style="margin-top: 3rem;">
+    <div class="screen-narrative">
+      <span class="screen-step">03</span>
+      <h4>Composição do custo — transparência até o item</h4>
+      <p>Chegando no nível do produto, o usuário acessa a composição completa do custo — entradas, deduções e custo líquido discriminados por tipo. Essa visão responde à dor mais profunda identificada na pesquisa: o cliente não sabia por quê o custo divergia. Agora ele vê.</p>
+      <div class="decision-card" style="margin-top: 1rem;">
+        <h4>Decisão de design</h4>
+        <p>A separação entre custo bruto e custo líquido em abas, com a composição detalhada visível sem scrolls adicionais, foi definida nos testes de usabilidade. Contadores e analistas precisavam da informação inteira na mesma tela para cruzar dados sem perder o contexto.</p>
+      </div>
+    </div>
+    <div class="screen-image">
+      <img src="composicao_custo.png" alt="Composição do custo fiscal do produto — entradas e deduções discriminadas">
+    </div>
+  </div>
+
+  <!-- DECISÃO DE ESCOPO -->
+  <div class="decision-card" style="margin-top: 3rem; border-left-color: #888; background: var(--bg-alt);">
+    <h4>Decisão de escopo — o que ficou fora do MVP e por quê</h4>
+    <p>Itens como visão do produto no contábil, uso de IA para análise automatizada e demonstração de parametrizações foram mantidos fora do MVP com raciocínio explícito: a complexidade técnica era alta e o produto precisava de maturidade em uso antes de avançar. Cada item foi documentado com justificativa — não foram descartados, foram postergados com critério.</p>
+  </div>
+
+  <!-- NOTA DE CONFIDENCIALIDADE -->
+  <div style="margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--bg-alt); border-radius: 10px; border: 1px solid var(--line);">
+    <p style="font-size: 0.8rem; color: var(--ink-faint); line-height: 1.6;"><strong style="color: var(--ink-muted);">Nota:</strong> Por restrições de confidencialidade, os artefatos compartilhados aqui representam uma seleção das telas desenvolvidas. O produto completo inclui outras análises e fluxos não divulgados neste portfólio.</p>
+  </div>
+
 </section>
 </div>
 
