@@ -3,7 +3,6 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Parse manual do body caso não venha parseado
   let body = req.body;
   if (typeof body === 'string') {
     try { body = JSON.parse(body); } catch (e) { body = {}; }
@@ -13,15 +12,23 @@ module.exports = async function handler(req, res) {
   const { system, messages } = body;
 
   if (!messages || !Array.isArray(messages)) {
-    return res.status(400).json({ error: 'Invalid request body', received: JSON.stringify(body) });
+    return res.status(400).json({ error: 'Invalid request body' });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
 
-  const contents = messages.map(m => ({
-    role: m.role === 'assistant' ? 'model' : 'user',
-    parts: [{ text: m.content }]
-  }));
+  // Inclui system prompt como primeira mensagem do usuário
+  const contents = [
+    {
+      role: 'user',
+      parts: [{ text: system + '\n\nPrimeira pergunta: ' + messages[0].content }]
+    },
+    { role: 'model', parts: [{ text: 'Entendido. Estou pronto para responder sobre o portfólio de Stefânia.' }] },
+    ...messages.slice(1).map(m => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }]
+    }))
+  ];
 
   try {
     const response = await fetch(
@@ -30,9 +37,8 @@ module.exports = async function handler(req, res) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          systemInstruction: { parts: [{ text: system }] },
-          contents: contents,
-          generationConfig: { maxOutputTokens: 1000 }
+          contents,
+          generationConfig: { maxOutputTokens: 800 }
         })
       }
     );
