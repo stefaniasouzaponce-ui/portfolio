@@ -1,7 +1,5 @@
 module.exports = async function handler(req, res) {
-  console.log('Method:', req.method);
-  console.log('Body:', JSON.stringify(req.body));
-
+  // Só aceita POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -37,7 +35,6 @@ module.exports = async function handler(req, res) {
     return res.status(200).json(data);
 
   } catch (error) {
-    console.log('Error:', error.message);
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: 'Internal server error' });
   }
 }
