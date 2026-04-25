@@ -782,6 +782,68 @@
   .badge-v1 { background: var(--bg-alt); color: var(--ink-faint); }
   .badge-v2 { background: var(--accent-light); color: var(--accent-mid); }
 
+  /* CASE HIGHLIGHTS */
+  .case-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .case-highlight-item {
+    background: var(--white);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .highlight-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .highlight-label {
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    line-height: 1.3;
+  }
+
+  /* CASE CARD — single column layout */
+  .case-featured {
+    display: block;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+
+  .case-content {
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* PROCESS FLOW compact */
+  .process-step {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .process-arrow {
+    font-size: 0.75rem;
+    color: var(--line);
+  }
+
   /* STANDARDIZED CARD COMPONENTS */
   .case-impact-card {
     background: var(--accent-light);
@@ -818,7 +880,7 @@
 
   .screen-data-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 1px;
     background: var(--line);
   }
@@ -1055,40 +1117,35 @@
         <h3>Monitor Tributário</h3>
         <p class="case-subtitle">TOTVS · Produto novo · ERP Fiscal · 2024</p>
         <p class="case-desc">Times fiscais gerenciavam planejamento tributário com planilhas e consultorias externas — processo caro, fragmentado e sem escalabilidade. Conduzi pesquisa com 21 clientes, estruturei priorização via matriz de relevância e liderei os testes — entregando um produto que se consolidou como receita recorrente estratégica no portfólio ERP.</p>
-      </div>
-      <div>
-        <div class="case-metrics">
-          <div class="metric"><span class="metric-value">21</span><span class="metric-label">Clientes entrevistados</span></div>
-          <div class="metric"><span class="metric-value">27→9</span><span class="metric-label">Ideias priorizadas</span></div>
-          <div class="metric"><span class="metric-value">100%</span><span class="metric-label">Validaram valor</span></div>
-        </div>
-        <div class="case-impact-card">
+
+        <div class="case-impact-card" style="margin-top: 1.5rem;">
           <p class="case-impact-label">Impacto além do produto</p>
           <p class="case-impact-text">A pesquisa gerou outro case e despriorizou uma iniciativa de consultoria — evitando investimento na direção errada.</p>
         </div>
-        <a href="#" onclick="showPage('case01', event)" class="btn-case">Ver o case completo →</a>
+
+        <a href="#" onclick="showPage('case01', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
       </div>
     </div>
     <div class="case-visuals">
       <p class="visual-label">Etapas do projeto</p>
-      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
-        <span class="process-step active">Pesquisa 21 clientes</span>
+      <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
+        <span class="process-step active">Pesquisa</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">27 ideias geradas</span>
+        <span class="process-step active">Ideação</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">9 priorizadas</span>
+        <span class="process-step active">Priorização</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Review técnico</span>
+        <span class="process-step active">Protótipo</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">6 testes · MVP</span>
+        <span class="process-step active">Testes</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">MVP</span>
       </div>
       <div class="case-screen-placeholder">
-        <img src="monitor-tributario.png" alt="Monitor Tributário" onerror="this.style.display='none'">
         <div class="screen-data-grid">
-          <div class="screen-data-item accent"><span class="sdi-val">54</span><span class="sdi-label">Contactados</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">21</span><span class="sdi-label">Participaram · 39%</span></div>
-          <div class="screen-data-item"><span class="sdi-val">3</span><span class="sdi-label">Perfis de maturidade</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">100%</span><span class="sdi-label">Validaram valor</span></div>
+          <div class="screen-data-item accent"><span class="sdi-val">21</span><span class="sdi-label">clientes · 39% dos contactados</span></div>
+          <div class="screen-data-item"><span class="sdi-val">3</span><span class="sdi-label">perfis de maturidade</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">100%</span><span class="sdi-label">validaram valor</span></div>
         </div>
       </div>
       <div class="insight-card">
@@ -1105,41 +1162,36 @@
         <div class="case-number">Case 02</div>
         <h3>Conciliação de Módulos</h3>
         <p class="case-subtitle">TOTVS · Produto novo · ERP Contábil</p>
-        <p class="case-desc">Divergências entre estoques contábil, fiscal e gerencial eram um problema crônico no ERP — sem causa raiz, sem autonomia do cliente e com alto custo de suporte. Defini a metodologia de discovery em duas camadas — interna e com clientes — e liderei a concepção de um produto que transformou um processo opaco em análise guiada com ação direta.</p>
-      </div>
-      <div>
-        <div class="case-metrics">
-          <div class="metric"><span class="metric-value">20</span><span class="metric-label">Participantes nos testes</span></div>
-          <div class="metric"><span class="metric-value">83%</span><span class="metric-label">Alta aderência ao uso</span></div>
-          <div class="metric"><span class="metric-value">67%</span><span class="metric-label">Preveem redução de tempo</span></div>
-        </div>
-        <div class="case-impact-card">
+        <p class="case-desc">Divergências entre estoques contábil, fiscal e gerencial eram um problema crônico no ERP — sem causa raiz, sem autonomia do cliente e com alto custo de serviço. Defini a metodologia de discovery em duas camadas — interna e com clientes — e liderei a concepção de um produto que transformou um processo opaco em análise guiada com ação direta.</p>
+
+        <div class="case-impact-card" style="margin-top: 1.5rem;">
           <p class="case-impact-label">Validação interna</p>
           <p class="case-impact-text">100% dos times de suporte e serviço confirmaram que o nível de item é essencial para análise eficiente.</p>
         </div>
-        <a href="#" onclick="showPage('case02', event)" class="btn-case">Ver o case completo →</a>
+
+        <a href="#" onclick="showPage('case02', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
       </div>
     </div>
     <div class="case-visuals">
       <p class="visual-label">Etapas do projeto</p>
-      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
-        <span class="process-step active">Pesquisa interna</span>
+      <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
+        <span class="process-step active">Pesquisa</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Mapeamento divergências</span>
+        <span class="process-step active">Ideação</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Teste de conceito</span>
+        <span class="process-step active">Priorização</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Teste de usabilidade</span>
+        <span class="process-step active">Protótipo</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Testes</span>
         <span class="process-arrow">→</span>
         <span class="process-step active">MVP</span>
       </div>
       <div class="case-screen-placeholder">
-        <img src="conciliacao-dashboard.png" alt="Dashboard Conciliação" onerror="this.style.display='none'">
         <div class="screen-data-grid">
-          <div class="screen-data-item accent"><span class="sdi-val">R$ 5,8M</span><span class="sdi-label">Estoque Contábil</span></div>
-          <div class="screen-data-item"><span class="sdi-val">+2,9%</span><span class="sdi-label">Estoque Fiscal</span></div>
-          <div class="screen-data-item"><span class="sdi-val">7</span><span class="sdi-label">Estoques negativos</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">6</span><span class="sdi-label">Produtos sem custo</span></div>
+          <div class="screen-data-item accent"><span class="sdi-val">83%</span><span class="sdi-label">alta aderência de uso</span></div>
+          <div class="screen-data-item"><span class="sdi-val">67%</span><span class="sdi-label">preveem redução de tempo</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">14</span><span class="sdi-label">clientes internos validaram</span></div>
         </div>
       </div>
       <div class="insight-card">
@@ -1157,40 +1209,35 @@
         <h3>Minha Gestão de Lojas</h3>
         <p class="case-subtitle">TOTVS · Produto Mobile · Varejo Supermercadista</p>
         <p class="case-desc">O app existia mas era um sistema de registro — não de ação. Gestores identificavam ocorrências mas as correções dependiam de outros canais. O discovery revelou 3 perfis de uso não mapeados no MVP, redefinindo a arquitetura da solução e transformando o app em ferramenta de decisão integrada ao ERP.</p>
-      </div>
-      <div>
-        <div class="case-metrics">
-          <div class="metric"><span class="metric-value">5</span><span class="metric-label">Clientes entrevistados</span></div>
-          <div class="metric"><span class="metric-value">3</span><span class="metric-label">Perfis descobertos</span></div>
-          <div class="metric"><span class="metric-value">★ 1°</span><span class="metric-label">Maior receita 2024</span></div>
-        </div>
-        <div class="case-impact-card">
+
+        <div class="case-impact-card" style="margin-top: 1.5rem;">
           <p class="case-impact-label">Impacto em cliente real</p>
           <p class="case-impact-text">78% de redução de perdas por validade e 21% de aumento de vendas — resultado público após adoção.</p>
         </div>
-        <a href="#" onclick="showPage('case03', event)" class="btn-case">Ver o case completo →</a>
+
+        <a href="#" onclick="showPage('case03', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
       </div>
     </div>
     <div class="case-visuals">
       <p class="visual-label">Etapas do projeto</p>
-      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
-        <span class="process-step active">Diagnóstico MVP</span>
+      <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
+        <span class="process-step active">Pesquisa</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">5 entrevistas</span>
+        <span class="process-step active">Ideação</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">3 perfis mapeados</span>
+        <span class="process-step active">Priorização</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Prototipação</span>
+        <span class="process-step active">Protótipo</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Testes guiados</span>
+        <span class="process-step active">Testes</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">MVP</span>
       </div>
       <div class="case-screen-placeholder">
-        <img src="app-gestao.png" alt="App Gestão de Lojas" onerror="this.style.display='none'">
         <div class="screen-data-grid">
-          <div class="screen-data-item"><span class="sdi-val">Conferente</span><span class="sdi-label">Perfil operacional</span></div>
-          <div class="screen-data-item"><span class="sdi-val">Supervisor</span><span class="sdi-label">Gestão de fila</span></div>
-          <div class="screen-data-item accent"><span class="sdi-val">78%</span><span class="sdi-label">↓ Perdas validade</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">21%</span><span class="sdi-label">↑ Vendas</span></div>
+          <div class="screen-data-item accent"><span class="sdi-val">78%</span><span class="sdi-label">redução de perdas por validade</span></div>
+          <div class="screen-data-item"><span class="sdi-val">+</span><span class="sdi-label">autonomia para o usuário</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">ERP</span><span class="sdi-label">integração para ações diretas</span></div>
         </div>
       </div>
       <div class="insight-card">
@@ -1200,56 +1247,7 @@
     </div>
   </div>
 
-  <!-- CASE 04 — SIMULADOR REFORMA -->
-  <div class="case-featured" style="margin-top: 2rem;">
-    <div class="case-content">
-      <div>
-        <div class="case-number">Case 04</div>
-        <h3>Simulador da Reforma Tributária</h3>
-        <p class="case-subtitle">TOTVS · Feature estratégica · ERP Fiscal</p>
-        <p class="case-desc">Times fiscais enfrentavam a reforma tributária sem visibilidade sobre seu impacto no caixa — a projeção era montada manualmente em planilhas. Conduzi o discovery e a entrega de uma funcionalidade que antecipou esse cenário, transformando o processo em análise navegável e influenciando diretamente decisões de roadmap.</p>
-      </div>
-      <div>
-        <div class="case-metrics">
-          <div class="metric"><span class="metric-value">7</span><span class="metric-label">Clientes testados</span></div>
-          <div class="metric"><span class="metric-value">100%</span><span class="metric-label">Validaram valor</span></div>
-          <div class="metric"><span class="metric-value">↓</span><span class="metric-label">Churn do produto</span></div>
-        </div>
-        <div class="case-impact-card">
-          <p class="case-impact-label">Decisão estratégica</p>
-          <p class="case-impact-text">Feature desprioritizada com base nos dados do discovery — evitando desperdício de desenvolvimento.</p>
-        </div>
-        <a href="#" onclick="showPage('case04', event)" class="btn-case">Ver o case completo →</a>
-      </div>
-    </div>
-    <div class="case-visuals">
-      <p class="visual-label">Etapas do projeto</p>
-      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
-        <span class="process-step active">Discovery</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">7 testes</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Decisão de design</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">MVP</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Backlog</span>
-      </div>
-      <div class="case-screen-placeholder">
-        <div class="screen-data-grid">
-          <div class="screen-data-item"><span class="sdi-val">2025</span><span class="sdi-label">Início transição</span></div>
-          <div class="screen-data-item"><span class="sdi-val">2033</span><span class="sdi-label">Fim transição</span></div>
-          <div class="screen-data-item accent"><span class="sdi-val">7</span><span class="sdi-label">Impostos mapeados</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">100%</span><span class="sdi-label">Validaram valor</span></div>
-        </div>
-      </div>
-      <div class="insight-card">
-        <p>"Isso vai ajudar muito em apresentações executivas — antes tínhamos que montar essas visões manualmente."</p>
-        <cite>Gerente fiscal · Rede de supermercados</cite>
-      </div>
-    </div>
-  </div>
-
+</section>
 </section>
 
 <!-- CHAT SECTION -->
@@ -1653,97 +1651,6 @@
   </div>
 </section>
 </div>
-
-<!-- PAGE: CASE 04 -->
-<div id="page-case04" class="page">
-  <button class="back-btn" onclick="showPage('home', event)">← Voltar para cases</button>
-<!-- CASE 04 DETAIL - SIMULADOR -->
-<section class="case-detail-section" id="case04-detail">
-  <div class="section-header">
-    <span class="section-label">Case 04 · Aprofundamento</span>
-    <h2>O processo</h2>
-  </div>
-
-  <div class="detail-grid">
-    <div class="detail-block">
-      <h4>O problema de negócio</h4>
-      <p>
-        Times fiscais não tinham visibilidade sobre como a reforma tributária afetaria
-        seus débitos ao longo de 8 anos de transição. Sem essa projeção, decisões de
-        precificação, formação de margem e apresentações para a diretoria dependiam de
-        planilhas montadas manualmente — processo lento, sujeito a erros e que gerava
-        risco fiscal e financeiro para os clientes.
-      </p>
-    </div>
-    <div class="detail-block">
-      <h4>Discovery e validação</h4>
-      <p>
-        Conduzi 7 testes em duas fases com gerentes, coordenadores, consultores e analistas
-        fiscais de grandes redes. O roteiro combinava tarefas de validação de fluxo com
-        perguntas qualitativas sobre valor percebido — permitindo separar o que era feedback
-        de preferência do que era fricção real. Todos os participantes validaram a relevância
-        da solução para sua operação.
-      </p>
-    </div>
-    <div class="detail-block">
-      <h4>Meu papel</h4>
-      <p>
-        Liderei o projeto de ponta a ponta em parceria com PO, dev especialista e 2
-        consultores tributários: facilitação das dinâmicas de alinhamento, definição do
-        fluxo e das telas, review técnico com engenharia para validar viabilidade das
-        visualizações, condução e análise dos testes, e apresentação final para PM
-        e tribe leads — incluindo a recomendação de despriorizar uma feature com base
-        nos dados coletados.
-      </p>
-    </div>
-  </div>
-
-  <div class="decision-card">
-    <h4>Decisão de design — separar para clarificar</h4>
-    <p>
-      Os testes revelaram uma tensão: usuários pediam tudo em um gráfico, mas a análise
-      mostrou que isso comprimiria duas necessidades distintas numa visão só — a progressão
-      total dos débitos e a comparação entre impostos atuais e novos. A decisão foi separar
-      em dois gráficos complementares, preservando a visão por imposto — apontada como
-      essencial em todos os testes — sem sacrificar a leitura consolidada. Entregamos o
-      que o usuário precisava ver, não apenas o que ele pediu.
-    </p>
-  </div>
-
-  <div class="decision-card" style="margin-top: 1rem; border-left-color: #888; background: var(--bg-alt);">
-    <h4>Decisão estratégica — despriorizar com dados</h4>
-    <p>
-      Uma segunda funcionalidade estava no escopo inicial. Os testes, combinados com a
-      incerteza regulatória do governo sobre a implementação, indicaram que avançar seria
-      um risco desnecessário. Apresentei a recomendação de esperar com embasamento direto
-      nos dados do discovery — a feature foi desprioritizada. Esse movimento evitou
-      desperdício de desenvolvimento e manteve o foco no que gerava valor imediato.
-    </p>
-  </div>
-
-  <div class="screens-strip">
-    <div class="screen-label-wrap">
-      <span class="version-badge badge-v1">Versão inicial — teste de conceito</span>
-      <div class="screen-mockup">
-        <img src="Page_Tela__2_.png" alt="Primeira versão — gráfico de transição de impostos" style="width:100%;height:auto;display:block;">
-      </div>
-    </div>
-    <div class="screen-label-wrap">
-      <span class="version-badge badge-v2">MVP final — pós testes</span>
-      <div class="screen-mockup">
-        <img src="Page_Tela__4_.png" alt="MVP final com múltiplos gráficos" style="width:100%;height:auto;display:block;">
-      </div>
-    </div>
-    <div class="screen-label-wrap">
-      <span class="version-badge badge-v2">Detalhamento por UF</span>
-      <div class="screen-mockup">
-        <img src="Page_Tela__1_.png" alt="Detalhes por UF sob o faturamento" style="width:100%;height:auto;display:block;">
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-
 <!-- FOOTER -->
 <footer style="padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
   <p style="font-size: 0.8rem; color: var(--ink-faint);">© 2025 Stefânia Souza · Product Designer</p>
