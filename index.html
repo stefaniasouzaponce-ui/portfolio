@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stefânia Souza — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-muted: #6b6b6b;
+    --ink-faint: #a8a8a8;
+    --bg: #faf9f7;
+    --bg-alt: #f2f0ec;
+    --accent: #1a3a2a;
+    --accent-light: #e8f0eb;
+    --accent-mid: #2d5c42;
+    --line: #e0ddd8;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: auto; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #fff !important;
+    padding: 0.5rem 1.1rem;
+    border-radius: 100px;
+    font-size: 0.82rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cv:hover { background: var(--accent-mid) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(120px, 18vw, 220px);
+    color: var(--line);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.05em;
+    opacity: 0.5;
+  }
+
+  .hero-tag {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent-mid);
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    max-width: 900px;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent-mid);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent-mid); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+  .hero-meta {
+    position: absolute;
+    right: 4rem;
+    bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: right;
+  }
+
+  .hero-meta span {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.03em;
+  }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    background: var(--accent);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-strip h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .about-strip h2 em { font-style: italic; opacity: 0.6; }
+
+  .about-right { display: flex; flex-direction: column; gap: 2rem; }
+
+  .about-text {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.75;
+    max-width: 580px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .skill-item {
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.04);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+  }
+
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tool-pill {
+    padding: 0.3rem 0.85rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.02em;
+  }
+
+  /* CASES */
+  .cases-section {
+    padding: 6rem 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .section-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  /* CASE CARD - featured */
+  .case-featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .case-content {
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .case-number {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .case-number::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent-mid);
+  }
+
+  .case-content h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .case-subtitle {
+    font-size: 0.88rem;
+    color: var(--accent-mid);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .case-desc {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .case-tag {
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-alt);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .case-metrics {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+    margin-bottom: 2rem;
+  }
+
+  .metric { display: flex; flex-direction: column; gap: 0.25rem; }
+
+  .metric-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .btn-case {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 1.75rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s;
+    align-self: flex-start;
+    cursor: default;
+    opacity: 0.9;
+  }
+
+  .btn-case:hover { background: var(--accent-mid); }
+
+  /* CASE VISUALS */
+  .case-visuals {
+    background: var(--bg-alt);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+    gap: 1.5rem;
+    min-height: 600px;
+  }
+
+  .visual-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+
+  .screen-mockup {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .screen-mockup img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .process-flow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.03em;
+  }
+
+  .process-step {
+    padding: 0.3rem 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .process-step.active {
+    background: var(--accent-light);
+    border-color: var(--accent-mid);
+    color: var(--accent);
+  }
+
+  .process-arrow { color: var(--line); font-size: 0.9rem; }
+
+  /* INSIGHT CARD */
+  .insight-card {
+    background: var(--accent);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .insight-card::before {
+    content: '"';
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem;
+    color: rgba(255,255,255,0.1);
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    line-height: 1;
+  }
+
+  .insight-card p { position: relative; }
+
+  .insight-card cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* COMING SOON CASES */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .case-placeholder {
+    background: var(--white);
+    border: 1px dashed var(--line);
+    border-radius: 16px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 320px;
+    justify-content: center;
+  }
+
+  .placeholder-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .placeholder-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--ink-faint);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .placeholder-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-alt);
+    border-radius: 100px;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    align-self: flex-start;
+  }
+
+  /* EXPERIENCE */
+  .experience-section {
+    padding: 5rem 4rem;
+    background: var(--bg-alt);
+  }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    margin-top: 3rem;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .exp-year {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    padding-top: 0.25rem;
+    letter-spacing: 0.02em;
+  }
+
+  .exp-body h4 {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-company {
+    font-size: 0.85rem;
+    color: var(--accent-mid);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .exp-body p {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* CERTS / EXTRAS */
+  .extras-col { display: flex; flex-direction: column; gap: 0; }
+
+  .extra-item {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .extra-item h4 {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .extra-sub {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  .extra-badge {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.65rem;
+    background: var(--accent-light);
+    border-radius: 100px;
+    font-size: 0.72rem;
+    color: var(--accent-mid);
+    letter-spacing: 0.03em;
+  }
+
+  /* EXPERIENCE COMPACT */
+  .exp-compact { display: flex; flex-direction: column; margin-top: 2.5rem; }
+  .exp-compact-item { display: grid; grid-template-columns: 160px 1fr 1fr; align-items: center; gap: 2rem; padding: 1.25rem 0; border-top: 1px solid var(--line); }
+  .exp-compact-item:last-child { border-bottom: 1px solid var(--line); }
+  .exp-compact-year { font-size: 0.8rem; color: var(--ink-faint); letter-spacing: 0.02em; }
+  .exp-compact-role { font-size: 0.95rem; font-weight: 500; color: var(--ink); }
+  .exp-compact-company { font-size: 0.88rem; color: var(--accent-mid); font-weight: 500; }
+  .exp-compact-cta { margin-top: 2rem; display: flex; }
+
+  /* CONTACT */
+  .contact-section {
+    padding: 6rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  .contact-section h2 em {
+    font-style: italic;
+    color: var(--accent-mid);
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent-mid);
+    background: var(--accent-light);
+  }
+
+  .contact-link-label { font-size: 0.78rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.2rem; }
+  .contact-link-value { font-size: 0.95rem; font-weight: 500; }
+  .contact-arrow { color: var(--ink-faint); font-size: 1.1rem; }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer p { font-size: 0.8rem; color: var(--ink-faint); }
+
+  /* CASE DETAIL OVERLAY */
+  .case-detail-section {
+    padding: 5rem 4rem;
+    background: var(--white);
+    border-top: 1px solid var(--line);
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .detail-block {
+    padding: 2rem;
+    background: var(--bg);
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+
+  .detail-block h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-mid);
+    margin-bottom: 1rem;
+  }
+
+  .detail-block p {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  .decision-card {
+    border-left: 3px solid var(--accent-mid);
+    padding: 1.5rem;
+    background: var(--accent-light);
+    border-radius: 0 10px 10px 0;
+    margin-top: 2rem;
+  }
+
+  .decision-card h4 {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .decision-card p {
+    font-size: 0.88rem;
+    color: var(--accent-mid);
+    line-height: 1.6;
+  }
+
+  .screens-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .screen-label-wrap { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .version-badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    align-self: flex-start;
+  }
+
+  .badge-v1 { background: var(--bg-alt); color: var(--ink-faint); }
+  .badge-v2 { background: var(--accent-light); color: var(--accent-mid); }
+
+  /* STANDARDIZED CARD COMPONENTS */
+  .case-impact-card {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent-mid);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .case-impact-label {
+    font-size: 0.72rem;
+    color: var(--accent-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.35rem;
+  }
+  .case-impact-text {
+    font-size: 0.88rem;
+    color: var(--accent);
+    line-height: 1.55;
+  }
+
+  .case-screen-placeholder {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+  .case-screen-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .screen-data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+  }
+  .screen-data-item {
+    background: var(--white);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .screen-data-item.accent { background: var(--accent); }
+  .screen-data-item.accent .sdi-val,
+  .screen-data-item.accent .sdi-label { color: #fff; }
+  .screen-data-item.highlight { background: var(--accent-light); }
+  .screen-data-item.highlight .sdi-val { color: var(--accent); }
+  .screen-data-item.highlight .sdi-label { color: var(--accent-mid); }
+
+  .sdi-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .sdi-label {
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* CHAT SECTION */
+  .chat-section {
+    padding: 5rem 4rem;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--line);
+  }
+
+  .chat-intro {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    max-width: 560px;
+    margin-bottom: 2rem;
+    line-height: 1.65;
+  }
+
+  .chat-container {
+    max-width: 720px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .chat-messages {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .chat-msg { display: flex; }
+  .chat-msg.user { justify-content: flex-end; }
+  .chat-msg.assistant { justify-content: flex-start; }
+
+  .chat-bubble {
+    max-width: 80%;
+    padding: 0.85rem 1.15rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .chat-msg.user .chat-bubble {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 12px 12px 2px 12px;
+  }
+
+  .chat-msg.assistant .chat-bubble {
+    background: var(--bg-alt);
+    color: var(--ink);
+    border-radius: 12px 12px 12px 2px;
+  }
+
+  .chat-msg.loading .chat-bubble {
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+
+  .chat-suggestions {
+    padding: 0 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .chat-suggestion {
+    padding: 0.4rem 0.9rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .chat-suggestion:hover {
+    border-color: var(--accent-mid);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .chat-input-row {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .chat-input {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+  }
+
+  .chat-send {
+    padding: 1rem 1.5rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .chat-send:hover { background: var(--accent-mid); }
+
+  /* SPA PAGE SYSTEM */
+  .page { 
+    display: none !important; 
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+  .page.active { 
+    display: block !important; 
+    visibility: visible;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* BACK BUTTON */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 4rem 2rem;
+    padding-top: 7rem;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .back-btn:hover { color: var(--ink); }
+
+  /* NAV ACTIVE STATE */
+  .nav-links a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home', event)">Stefânia Souza</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home', event)" id="nav-cases">Cases</a></li>
+    <li><a href="#" onclick="showPage('sobre', event)" id="nav-sobre">Sobre mim</a></li>
+    <li><a href="#" onclick="scrollToChat(event)" id="nav-perguntas">Perguntas</a></li>
+    <li><a href="#" class="nav-cv" onclick="alert('Adicione aqui o link do seu PDF')">↓ Currículo</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE: HOME -->
+<div id="page-home" class="page active">
+<!-- HERO -->
+<section class="hero">
+
+
+  <div class="hero-tag">Product Designer</div>
+
+  <h1>Oi, sou <em>Stefânia.</em></h1>
+
+  <p class="hero-desc">
+    Conecto design a objetivos de negócio — do discovery à entrega —
+    com foco em engajamento, adoção e impacto real. Trabalho em produtos
+    complexos com múltiplos perfis de usuário, em parceria com times de
+    produto, engenharia e negócio.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#" onclick="showPage('home', event)" class="btn-primary">Ver cases →</a>
+    <a href="#" class="btn-ghost" onclick="scrollToChat(event)">Perguntar sobre o portfólio</a>
+    <a href="#" class="btn-ghost" id="cv-download-hero" onclick="alert('Adicione aqui o link do seu PDF')">↓ Baixar currículo</a>
+  </div>
+
+
+</section>
+<!-- CASES SECTION -->
+<section class="cases-section" id="cases">
+  <div class="section-header">
+    <span class="section-label">Trabalhos selecionados</span>
+    <h2>Cases</h2>
+  </div>
+
+  <!-- CASE 01 — MONITOR TRIBUTÁRIO -->
+  <div class="case-featured" style="margin-top: 2rem;">
+    <div class="case-content">
+      <div>
+        <div class="case-number">Case 01</div>
+        <h3>Monitor Tributário</h3>
+        <p class="case-subtitle">TOTVS · Produto novo · ERP Fiscal · 2024</p>
+        <p class="case-desc">Times fiscais gerenciavam planejamento tributário com planilhas e consultorias externas — processo caro, fragmentado e sem escalabilidade. Conduzi pesquisa com 21 clientes, estruturei priorização via matriz de relevância e liderei os testes — entregando um produto que se consolidou como receita recorrente estratégica no portfólio ERP.</p>
+      </div>
+      <div>
+        <div class="case-metrics">
+          <div class="metric"><span class="metric-value">21</span><span class="metric-label">Clientes entrevistados</span></div>
+          <div class="metric"><span class="metric-value">27→9</span><span class="metric-label">Ideias priorizadas</span></div>
+          <div class="metric"><span class="metric-value">100%</span><span class="metric-label">Validaram valor</span></div>
+        </div>
+        <div class="case-impact-card">
+          <p class="case-impact-label">Impacto além do produto</p>
+          <p class="case-impact-text">A pesquisa gerou outro case e despriorizou uma iniciativa de consultoria — evitando investimento na direção errada.</p>
+        </div>
+        <a href="#" onclick="showPage('case01', event)" class="btn-case">Ver o case completo →</a>
+      </div>
+    </div>
+    <div class="case-visuals">
+      <p class="visual-label">Etapas do projeto</p>
+      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
+        <span class="process-step active">Pesquisa 21 clientes</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">27 ideias geradas</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">9 priorizadas</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Review técnico</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">6 testes · MVP</span>
+      </div>
+      <div class="case-screen-placeholder">
+        <img src="monitor-tributario.png" alt="Monitor Tributário" onerror="this.style.display='none'">
+        <div class="screen-data-grid">
+          <div class="screen-data-item accent"><span class="sdi-val">54</span><span class="sdi-label">Contactados</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">21</span><span class="sdi-label">Participaram · 39%</span></div>
+          <div class="screen-data-item"><span class="sdi-val">3</span><span class="sdi-label">Perfis de maturidade</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">100%</span><span class="sdi-label">Validaram valor</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <p>"Produto consolidado como receita recorrente estratégica no portfólio ERP — com churn baixo e backlog de evolução contínua."</p>
+        <cite>Resultados pós-lançamento · TOTVS</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 02 — CONCILIAÇÃO -->
+  <div class="case-featured" style="margin-top: 2rem;">
+    <div class="case-content">
+      <div>
+        <div class="case-number">Case 02</div>
+        <h3>Conciliação de Módulos</h3>
+        <p class="case-subtitle">TOTVS · Produto novo · ERP Contábil</p>
+        <p class="case-desc">Divergências entre estoques contábil, fiscal e gerencial eram um problema crônico no ERP — sem causa raiz, sem autonomia do cliente e com alto custo de suporte. Defini a metodologia de discovery em duas camadas — interna e com clientes — e liderei a concepção de um produto que transformou um processo opaco em análise guiada com ação direta.</p>
+      </div>
+      <div>
+        <div class="case-metrics">
+          <div class="metric"><span class="metric-value">20</span><span class="metric-label">Participantes nos testes</span></div>
+          <div class="metric"><span class="metric-value">83%</span><span class="metric-label">Alta aderência ao uso</span></div>
+          <div class="metric"><span class="metric-value">67%</span><span class="metric-label">Preveem redução de tempo</span></div>
+        </div>
+        <div class="case-impact-card">
+          <p class="case-impact-label">Validação interna</p>
+          <p class="case-impact-text">100% dos times de suporte e serviço confirmaram que o nível de item é essencial para análise eficiente.</p>
+        </div>
+        <a href="#" onclick="showPage('case02', event)" class="btn-case">Ver o case completo →</a>
+      </div>
+    </div>
+    <div class="case-visuals">
+      <p class="visual-label">Etapas do projeto</p>
+      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
+        <span class="process-step active">Pesquisa interna</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Mapeamento divergências</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Teste de conceito</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Teste de usabilidade</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">MVP</span>
+      </div>
+      <div class="case-screen-placeholder">
+        <img src="conciliacao-dashboard.png" alt="Dashboard Conciliação" onerror="this.style.display='none'">
+        <div class="screen-data-grid">
+          <div class="screen-data-item accent"><span class="sdi-val">R$ 5,8M</span><span class="sdi-label">Estoque Contábil</span></div>
+          <div class="screen-data-item"><span class="sdi-val">+2,9%</span><span class="sdi-label">Estoque Fiscal</span></div>
+          <div class="screen-data-item"><span class="sdi-val">7</span><span class="sdi-label">Estoques negativos</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">6</span><span class="sdi-label">Produtos sem custo</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <p>"Parabéns pela iniciativa — é nosso calcanhar de Aquiles. Ter a comparação por CGO é uma vitória."</p>
+        <cite>Edvaldo · Suporte Prime · TOTVS</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 03 — APP GESTÃO DE LOJAS -->
+  <div class="case-featured" style="margin-top: 2rem;">
+    <div class="case-content">
+      <div>
+        <div class="case-number">Case 03</div>
+        <h3>Minha Gestão de Lojas</h3>
+        <p class="case-subtitle">TOTVS · Produto Mobile · Varejo Supermercadista</p>
+        <p class="case-desc">O app existia mas era um sistema de registro — não de ação. Gestores identificavam ocorrências mas as correções dependiam de outros canais. O discovery revelou 3 perfis de uso não mapeados no MVP, redefinindo a arquitetura da solução e transformando o app em ferramenta de decisão integrada ao ERP.</p>
+      </div>
+      <div>
+        <div class="case-metrics">
+          <div class="metric"><span class="metric-value">5</span><span class="metric-label">Clientes entrevistados</span></div>
+          <div class="metric"><span class="metric-value">3</span><span class="metric-label">Perfis descobertos</span></div>
+          <div class="metric"><span class="metric-value">★ 1°</span><span class="metric-label">Maior receita 2024</span></div>
+        </div>
+        <div class="case-impact-card">
+          <p class="case-impact-label">Impacto em cliente real</p>
+          <p class="case-impact-text">78% de redução de perdas por validade e 21% de aumento de vendas — resultado público após adoção.</p>
+        </div>
+        <a href="#" onclick="showPage('case03', event)" class="btn-case">Ver o case completo →</a>
+      </div>
+    </div>
+    <div class="case-visuals">
+      <p class="visual-label">Etapas do projeto</p>
+      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
+        <span class="process-step active">Diagnóstico MVP</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">5 entrevistas</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">3 perfis mapeados</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Prototipação</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Testes guiados</span>
+      </div>
+      <div class="case-screen-placeholder">
+        <img src="app-gestao.png" alt="App Gestão de Lojas" onerror="this.style.display='none'">
+        <div class="screen-data-grid">
+          <div class="screen-data-item"><span class="sdi-val">Conferente</span><span class="sdi-label">Perfil operacional</span></div>
+          <div class="screen-data-item"><span class="sdi-val">Supervisor</span><span class="sdi-label">Gestão de fila</span></div>
+          <div class="screen-data-item accent"><span class="sdi-val">78%</span><span class="sdi-label">↓ Perdas validade</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">21%</span><span class="sdi-label">↑ Vendas</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <p>Premiado na convenção interna da TOTVS como o produto com maior geração de receita recorrente em 2024.</p>
+        <cite>Destaque interno · Convenção TOTVS 2024</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 04 — SIMULADOR REFORMA -->
+  <div class="case-featured" style="margin-top: 2rem;">
+    <div class="case-content">
+      <div>
+        <div class="case-number">Case 04</div>
+        <h3>Simulador da Reforma Tributária</h3>
+        <p class="case-subtitle">TOTVS · Feature estratégica · ERP Fiscal</p>
+        <p class="case-desc">Times fiscais enfrentavam a reforma tributária sem visibilidade sobre seu impacto no caixa — a projeção era montada manualmente em planilhas. Conduzi o discovery e a entrega de uma funcionalidade que antecipou esse cenário, transformando o processo em análise navegável e influenciando diretamente decisões de roadmap.</p>
+      </div>
+      <div>
+        <div class="case-metrics">
+          <div class="metric"><span class="metric-value">7</span><span class="metric-label">Clientes testados</span></div>
+          <div class="metric"><span class="metric-value">100%</span><span class="metric-label">Validaram valor</span></div>
+          <div class="metric"><span class="metric-value">↓</span><span class="metric-label">Churn do produto</span></div>
+        </div>
+        <div class="case-impact-card">
+          <p class="case-impact-label">Decisão estratégica</p>
+          <p class="case-impact-text">Feature desprioritizada com base nos dados do discovery — evitando desperdício de desenvolvimento.</p>
+        </div>
+        <a href="#" onclick="showPage('case04', event)" class="btn-case">Ver o case completo →</a>
+      </div>
+    </div>
+    <div class="case-visuals">
+      <p class="visual-label">Etapas do projeto</p>
+      <div class="process-flow" style="flex-wrap: wrap; gap: 0.5rem;">
+        <span class="process-step active">Discovery</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">7 testes</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Decisão de design</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">MVP</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Backlog</span>
+      </div>
+      <div class="case-screen-placeholder">
+        <img src="Page_Tela__4_.png" alt="Simulador da Reforma Tributária — visão geral com múltiplos gráficos" style="width:100%;height:auto;display:block;">
+      </div>
+      <div class="insight-card">
+        <p>"Isso vai ajudar muito em apresentações executivas — antes tínhamos que montar essas visões manualmente."</p>
+        <cite>Gerente fiscal · Rede de supermercados</cite>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CHAT SECTION -->
+<section class="chat-section">
+  <div class="section-header">
+    <span class="section-label">Triagem rápida</span>
+    <h2>Pergunte sobre o portfólio</h2>
+  </div>
+  <p class="chat-intro">Quer saber se Stefânia tem experiência com alguma habilidade, metodologia ou tipo de projeto específico? Pergunte diretamente.</p>
+
+  <div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-msg assistant">
+        <div class="chat-bubble">Olá! Posso ajudar você a entender o perfil e a experiência de Stefânia. Pergunte sobre habilidades, metodologias, tipos de produto ou qualquer aspecto do seu trabalho.</div>
+      </div>
+    </div>
+
+    <div class="chat-suggestions">
+      <button class="chat-suggestion" onclick="sendSuggestion(this)">Ela tem experiência com discovery?</button>
+      <button class="chat-suggestion" onclick="sendSuggestion(this)">Já trabalhou com produto mobile?</button>
+      <button class="chat-suggestion" onclick="sendSuggestion(this)">Como ela conduz pesquisa com usuários?</button>
+      <button class="chat-suggestion" onclick="sendSuggestion(this)">Tem experiência com Design System?</button>
+    </div>
+
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" class="chat-input" placeholder="Ex: ela tem experiência com testes A/B?" onkeydown="if(event.key==='Enter') sendMessage()">
+      <button class="chat-send" onclick="sendMessage()">→</button>
+    </div>
+  </div>
+</section>
+</div>
+
+
+<div id="page-sobre" class="page">
+  <button class="back-btn" onclick="showPage('home', event)">← Voltar</button>
+<!-- ABOUT STRIP -->
+<section class="about-strip">
+  <div>
+    <h2>Sobre<br><em>mim</em></h2>
+  </div>
+  <div class="about-right">
+    <p class="about-text">
+      Product Designer com experiência no ciclo completo — da descoberta à entrega.
+      Atuo conectando design a objetivos de negócio em produtos complexos com múltiplos
+      perfis de usuário, desde o operacional de chão de loja até a diretoria. Estruturo
+      processos de discovery orientados por dados e pesquisa, com foco em engajamento,
+      adoção e geração de valor real para o usuário e para o negócio. MBA em Gestão e
+      Estratégia em UX pela ESPM. Professora convidada na Escola PM3.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-item">Estratégia de produto e discovery</div>
+      <div class="skill-item">Pesquisa com usuários</div>
+      <div class="skill-item">Design de fluxos e jornadas</div>
+      <div class="skill-item">Design System e Visual Design</div>
+      <div class="skill-item">Facilitação e workshops</div>
+      <div class="skill-item">Prototipação multifidelidade</div>
+      <div class="skill-item">Testes de usabilidade</div>
+      <div class="skill-item">Análise de métricas</div>
+      <div class="skill-item">Cocriação multidisciplinar</div>
+    </div>
+    <div class="tools-row">
+      <span class="tool-pill">Figma</span>
+      <span class="tool-pill">Maze</span>
+      <span class="tool-pill">Hotjar</span>
+      <span class="tool-pill">Google Analytics</span>
+      <span class="tool-pill">Miro</span>
+      <span class="tool-pill">Notion</span>
+      <span class="tool-pill">Jira</span>
+    </div>
+  </div>
+</section>
+<!-- EXPERIENCE COMPACT -->
+<section class="experience-section" id="experiencia">
+  <div class="section-header">
+    <span class="section-label">Trajetória</span>
+    <h2>Experiência</h2>
+  </div>
+
+  <div class="exp-compact">
+    <div class="exp-compact-item">
+      <span class="exp-compact-year">2022 → presente</span>
+      <span class="exp-compact-role">Product Designer</span>
+      <span class="exp-compact-company">TOTVS</span>
+    </div>
+    <div class="exp-compact-item">
+      <span class="exp-compact-year">2020 — 2022</span>
+      <span class="exp-compact-role">UX/UI Designer</span>
+      <span class="exp-compact-company">Corebiz</span>
+    </div>
+    <div class="exp-compact-item">
+      <span class="exp-compact-year">2023 — 2025</span>
+      <span class="exp-compact-role">MBA Gestão e Estratégia em UX</span>
+      <span class="exp-compact-company">ESPM</span>
+    </div>
+    <div class="exp-compact-item">
+      <span class="exp-compact-year">2025</span>
+      <span class="exp-compact-role">Instrutora convidada · Prototipação com IA</span>
+      <span class="exp-compact-company">Escola PM3</span>
+    </div>
+  </div>
+
+  <div class="exp-compact-cta">
+    <a href="#" class="btn-ghost" onclick="alert('Adicione aqui o link do seu PDF')">↓ Currículo completo em PDF</a>
+  </div>
+</section>
+<!-- CONTACT -->
+<section class="contact-section" id="contato">
+  <div>
+    <h2>Vamos <em>trabalhar<br>juntos?</em></h2>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:stefania.souzaponce@gmail.com" class="contact-link">
+      <div>
+        <p class="contact-link-label">E-mail</p>
+        <p class="contact-link-value">stefania.souzaponce@gmail.com</p>
+      </div>
+      <span class="contact-arrow">→</span>
+    </a>
+    <a href="tel:+5516991665837" class="contact-link">
+      <div>
+        <p class="contact-link-label">Telefone</p>
+        <p class="contact-link-value">+55 (16) 99166-5837</p>
+      </div>
+      <span class="contact-arrow">→</span>
+    </a>
+    <a href="#" class="contact-link" id="cv-download-footer" onclick="alert('Adicione aqui o link do seu PDF')">
+      <div>
+        <p class="contact-link-label">Currículo</p>
+        <p class="contact-link-value">Baixar PDF</p>
+      </div>
+      <span class="contact-arrow">↓</span>
+    </a>
+  </div>
+</section>
+</div>
+
+<!-- PAGE: CASE 01 -->
+<div id="page-case01" class="page">
+  <button class="back-btn" onclick="showPage('home', event)">← Voltar para cases</button>
+<!-- CASE 01 DETAIL - MONITOR -->
+<!-- CASE 04 DETAIL -->
+<section class="case-detail-section" id="case01-detail" style="background: var(--white);">
+  <div class="section-header">
+    <span class="section-label">Case 01 · Aprofundamento</span>
+    <h2>O processo</h2>
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-block">
+      <h4>O problema de negócio</h4>
+      <p>
+        Times fiscais de diferentes portes gerenciavam planejamento tributário com
+        consultorias externas, planilhas e sem visão centralizada — processo caro,
+        fragmentado e sem escalabilidade para o ERP. O problema não era falta de dado,
+        era falta de visão acionável integrada ao sistema que já usavam.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Pesquisa em escala</h4>
+      <p>
+        Estruturei e conduzi uma pesquisa com 21 clientes de 54 contactados — taxa de
+        participação de 39%, alta para B2B. O roteiro exploratório cobriu planejamento
+        tributário, processos fiscais, reforma tributária e disponibilidade de
+        investimento. Incluir a dimensão de viabilidade comercial foi uma decisão deliberada
+        para validar o modelo de receita recorrente antes de qualquer linha de design.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Meu papel</h4>
+      <p>
+        Conduzi todo o processo: estruturação da pesquisa, facilitação das entrevistas
+        (em dupla para ganhar escala), análise e download dos dados, geração de 27 ideias,
+        priorização via matriz de relevância reduzindo para 9, review técnico com
+        engenharia, prototipação em média e alta fidelidade, 6 testes de usabilidade
+        e handoff.
+      </p>
+    </div>
+  </div>
+
+  <div class="decision-card" style="margin-top: 2rem;">
+    <h4>Descoberta que redefiniu o roadmap — 3 perfis de maturidade fiscal</h4>
+    <p>
+      A pesquisa revelou que o porte da empresa não determinava a maturidade do time
+      fiscal — existiam pequenas empresas com times altamente gerenciados e grandes
+      com times organizados mas reativos. Mapeamos 3 perfis distintos: time gerenciado
+      (42,9%), estruturado (33,3%) e organizado (23,8%). O perfil gerenciado foi o que
+      gerou mais insumos para as visões do produto — e essa segmentação redefiniu o
+      público-alvo prioritário, independente do porte da empresa contratante.
+    </p>
+  </div>
+
+  <div class="decision-card" style="margin-top: 1rem; border-left-color: #888; background: var(--bg-alt);">
+    <h4>Impacto além do produto — pesquisa que influenciou o portfólio</h4>
+    <p>
+      Os insights da pesquisa do Monitor tiveram impacto direto em outras iniciativas:
+      geraram o case do Simulador da Reforma Tributária e forneceram dados que
+      despriorizaram uma iniciativa de consultoria tributária interna — evitando
+      investimento em uma direção que os próprios clientes não validaram como prioritária.
+      Uma pesquisa que custa uma vez e rende para múltiplos produtos é o tipo de
+      alavancagem que diferencia designer estratégico de executor.
+    </p>
+  </div>
+
+  <div class="decision-card" style="margin-top: 1rem; border-left-color: var(--accent-mid); background: var(--accent-light);">
+    <h4>Review técnico — parte do processo, não etapa separada</h4>
+    <p>
+      Antes de finalizar o escopo do MVP, realizei um alinhamento estruturado com
+      engenharia para mapear impedimentos técnicos das 9 análises propostas. O resultado
+      revelou riscos reais de performance com o volume de dados gerencial e fiscal —
+      o que levou a decisões de arquitetura que protegeram a entrega. Esse processo
+      faz parte do meu fluxo em todos os projetos: design que não conversa com
+      engenharia antes de entregar cria débito técnico e expectativas frustradas.
+    </p>
+  </div>
+</section>
+</div>
+
+<!-- PAGE: CASE 02 -->
+<div id="page-case02" class="page">
+  <button class="back-btn" onclick="showPage('home', event)">← Voltar para cases</button>
+<!-- CASE 02 DETAIL - CONCILIAÇÃO -->
+<section class="case-detail-section" id="case02-detail" style="background: var(--bg-alt);">
+  <div class="section-header">
+    <span class="section-label">Case 02 · Aprofundamento</span>
+    <h2>O processo</h2>
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-block">
+      <h4>O problema de negócio</h4>
+      <p>
+        Divergências de custo e estoque sem causa raiz identificada geravam distorções
+        financeiras, risco fiscal e sobrecarga nos times de suporte, serviço e produto.
+        O cliente não sabia onde, por quê ou como resolver — esperava que o sistema
+        respondesse. O problema era recorrente, não escalável e custoso para ambos os lados.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Metodologia que defini</h4>
+      <p>
+        Estruturei uma pesquisa em duas camadas antes de falar com clientes: primeiro um
+        mapeamento interno com times de suporte, serviço e produto para entender como o
+        sistema gerava as divergências e o que poderia ser mitigado. Com esse mapa de
+        hipóteses estruturadas, chegamos aos clientes com perguntas mais precisas e saímos
+        com respostas mais acionáveis.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Meu papel</h4>
+      <p>
+        Liderei o processo completo: definição da metodologia de pesquisa, facilitação dos
+        mapeamentos internos, criação dos protótipos de conceito (IA) e alta fidelidade
+        (Figma + Design System), condução dos testes com roteiro estruturado e apresentação
+        dos resultados e recomendações para PM e tribe leads.
+      </p>
+    </div>
+  </div>
+
+  <div class="detail-grid" style="margin-top: 1.5rem;">
+    <div class="detail-block">
+      <h4>Validação interna — 14 participantes</h4>
+      <p>
+        Times de suporte, prime e serviço foram validadores essenciais — são eles que
+        hoje resolvem manualmente o que o produto vai automatizar. 100% enfatizou que
+        a análise eficiente exige o nível de item (produto), confirmando uma das
+        decisões centrais de navegação. "Parabéns pela iniciativa — é nosso calcanhar
+        de Aquiles. Ter a comparação por CGO é uma vitória." — Edvaldo, Suporte Prime.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Validação com clientes — 6 participantes</h4>
+      <p>
+        83% teve alta aderência ao uso da nova aplicação. 67% afirmou que a ferramenta
+        vai reduzir o tempo de análise para o fechamento mensal. O perfil inicial
+        incluía maioria de detratores do processo atual — o que reforça a urgência
+        da solução e a relevância da adoção. "Ficou excelente a visão do estoque
+        negativo." — Cliente Costa.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Teste de conceito · Teste de usabilidade</h4>
+      <p>
+        Duas fases distintas: protótipo de média fidelidade gerado com IA para validar
+        conceito com gerentes, e protótipo de alta fidelidade no Figma com Design System
+        da TOTVS para validar usabilidade com contadores e analistas. Roteiro com tarefas
+        críticas e perguntas qualitativas em cada fase.
+      </p>
+    </div>
+  </div>
+
+  <div class="decision-card" style="margin-top: 2rem;">
+    <h4>Decisão de design — drill-down como princípio central</h4>
+    <p>
+      A pesquisa mostrou que o maior obstáculo não era encontrar a divergência — era
+      rastreá-la até a origem. Desenhamos uma navegação hierárquica que parte da visão
+      consolidada da empresa e permite "explodir" os dados até o nível do item individual,
+      com ações corretivas disponíveis em cada camada. Essa estrutura não foi uma escolha
+      estética — foi a resposta direta ao problema de rastreabilidade que nenhuma planilha
+      conseguia resolver.
+    </p>
+  </div>
+
+  <div class="decision-card" style="margin-top: 1rem; border-left-color: #888; background: var(--bg);">
+    <h4>Decisão de escopo — o que ficou fora do MVP e por quê</h4>
+    <p>
+      Itens como visão do produto no contábil, uso de IA para análise automatizada e
+      demonstração de parametrizações foram mantidos fora do MVP com raciocínio explícito:
+      a complexidade técnica era alta e o produto precisava de maturidade em uso antes
+      de avançar. Cada item foi documentado com justificativa — não foram descartados,
+      foram postergados com critério. Isso protegeu o escopo do lançamento e evitou
+      entregas incompletas que poderiam comprometer a adoção.
+    </p>
+  </div>
+</section>
+</div>
+
+<!-- PAGE: CASE 03 -->
+<div id="page-case03" class="page">
+  <button class="back-btn" onclick="showPage('home', event)">← Voltar para cases</button>
+<!-- CASE 03 DETAIL - APP -->
+<section class="case-detail-section" id="case03-detail">
+  <div class="section-header">
+    <span class="section-label">Case 03 · Aprofundamento</span>
+    <h2>O processo</h2>
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-block">
+      <h4>O desafio estratégico</h4>
+      <p>
+        O desafio não era redesenhar telas — era definir os limites de ação do app dentro
+        de um ecossistema complexo: o que o gestor de loja pode corrigir diretamente,
+        o que precisa acionar outra área, e como garantir que tudo isso fique registrado
+        e rastreável no ERP e nos sistemas legados. Uma decisão de arquitetura de produto
+        que o design precisava sustentar.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Pesquisa com usuários</h4>
+      <p>
+        Conduzi 5 entrevistas remotas com gerentes de TI e gerentes de loja, com roteiro
+        focado no comportamento pós-finalização de tarefas — onde o fluxo quebrava, o que
+        exigia workaround e quais decisões ficavam represadas por falta de canal adequado.
+        Os dados de uma visita presencial conduzida pelo PO foram integrados à análise,
+        enriquecendo o retrato da operação real.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Meu papel</h4>
+      <p>
+        Liderei o discovery e a concepção da nova fase: diagnóstico do MVP anterior,
+        condução das entrevistas, mapeamento dos novos cenários de uso, definição dos
+        critérios de sensibilidade para ações no app, prototipação e testes de conceito
+        guiados com usuários reais.
+      </p>
+    </div>
+  </div>
+
+  <div class="decision-card" style="margin-top: 2rem;">
+    <h4>Descoberta que redefiniu o produto — 3 perfis invisíveis</h4>
+    <p>
+      O MVP havia sido concebido com um único perfil de usuário. As entrevistas revelaram
+      três perfis com necessidades, fluxos e níveis de permissão completamente distintos:
+      o conferente (execução operacional), o supervisor (gestão de fila e pendências) e
+      o gerente de área (visão consolidada e decisão). Sem essa descoberta, a nova fase
+      teria entregue uma solução para um terço dos usuários reais. A arquitetura de
+      permissões, a hierarquia de informações e os fluxos do app foram redesenhados
+      a partir desses três perfis.
+    </p>
+  </div>
+
+  <div class="decision-card" style="margin-top: 1rem; border-left-color: #888; background: var(--bg-alt);">
+    <h4>Decisão de produto — limites de ação no app</h4>
+    <p>
+      Definimos critérios explícitos de sensibilidade para cada tipo de ação: correções
+      de cadastro e preço partem do app com alerta automático por e-mail às áreas
+      responsáveis; inventários são automatizados via integração direta com o ERP com
+      controle de permissões e auditoria; ações que impactam sistemas legados são
+      formalizadas com histórico rastreável. O design foi consequência dessas decisões —
+      cada tela existe para suportar um critério de ação, não o contrário.
+    </p>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 2rem; background: var(--accent); border-radius: 12px;">
+    <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.25rem;">Impacto documentado — case público de cliente</p>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+      <div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; line-height: 1;">78%</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">Redução de perdas por validade</p>
+      </div>
+      <div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; line-height: 1;">21%</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">Aumento de vendas</p>
+      </div>
+      <div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; line-height: 1;">★ 1°</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">Maior receita recorrente — Convenção TOTVS 2024</p>
+      </div>
+    </div>
+    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 1.25rem;">Resultado de cliente após adoção da solução — dados públicos divulgados pela TOTVS.</p>
+  </div>
+</section>
+</div>
+
+<!-- PAGE: CASE 04 -->
+<div id="page-case04" class="page">
+  <button class="back-btn" onclick="showPage('home', event)">← Voltar para cases</button>
+<!-- CASE 04 DETAIL - SIMULADOR -->
+<section class="case-detail-section" id="case04-detail">
+  <div class="section-header">
+    <span class="section-label">Case 04 · Aprofundamento</span>
+    <h2>O processo</h2>
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-block">
+      <h4>O problema de negócio</h4>
+      <p>
+        Times fiscais não tinham visibilidade sobre como a reforma tributária afetaria
+        seus débitos ao longo de 8 anos de transição. Sem essa projeção, decisões de
+        precificação, formação de margem e apresentações para a diretoria dependiam de
+        planilhas montadas manualmente — processo lento, sujeito a erros e que gerava
+        risco fiscal e financeiro para os clientes.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Discovery e validação</h4>
+      <p>
+        Conduzi 7 testes em duas fases com gerentes, coordenadores, consultores e analistas
+        fiscais de grandes redes. O roteiro combinava tarefas de validação de fluxo com
+        perguntas qualitativas sobre valor percebido — permitindo separar o que era feedback
+        de preferência do que era fricção real. Todos os participantes validaram a relevância
+        da solução para sua operação.
+      </p>
+    </div>
+    <div class="detail-block">
+      <h4>Meu papel</h4>
+      <p>
+        Liderei o projeto de ponta a ponta em parceria com PO, dev especialista e 2
+        consultores tributários: facilitação das dinâmicas de alinhamento, definição do
+        fluxo e das telas, review técnico com engenharia para validar viabilidade das
+        visualizações, condução e análise dos testes, e apresentação final para PM
+        e tribe leads — incluindo a recomendação de despriorizar uma feature com base
+        nos dados coletados.
+      </p>
+    </div>
+  </div>
+
+  <div class="decision-card">
+    <h4>Decisão de design — separar para clarificar</h4>
+    <p>
+      Os testes revelaram uma tensão: usuários pediam tudo em um gráfico, mas a análise
+      mostrou que isso comprimiria duas necessidades distintas numa visão só — a progressão
+      total dos débitos e a comparação entre impostos atuais e novos. A decisão foi separar
+      em dois gráficos complementares, preservando a visão por imposto — apontada como
+      essencial em todos os testes — sem sacrificar a leitura consolidada. Entregamos o
+      que o usuário precisava ver, não apenas o que ele pediu.
+    </p>
+  </div>
+
+  <div class="decision-card" style="margin-top: 1rem; border-left-color: #888; background: var(--bg-alt);">
+    <h4>Decisão estratégica — despriorizar com dados</h4>
+    <p>
+      Uma segunda funcionalidade estava no escopo inicial. Os testes, combinados com a
+      incerteza regulatória do governo sobre a implementação, indicaram que avançar seria
+      um risco desnecessário. Apresentei a recomendação de esperar com embasamento direto
+      nos dados do discovery — a feature foi desprioritizada. Esse movimento evitou
+      desperdício de desenvolvimento e manteve o foco no que gerava valor imediato.
+    </p>
+  </div>
+
+  <div class="screens-strip">
+    <div class="screen-label-wrap">
+      <span class="version-badge badge-v1">Versão inicial — teste de conceito</span>
+      <div class="screen-mockup">
+        <img src="Page_Tela__2_.png" alt="Primeira versão — gráfico de transição de impostos" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+    <div class="screen-label-wrap">
+      <span class="version-badge badge-v2">MVP final — pós testes</span>
+      <div class="screen-mockup">
+        <img src="Page_Tela__4_.png" alt="MVP final com múltiplos gráficos" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+    <div class="screen-label-wrap">
+      <span class="version-badge badge-v2">Detalhamento por UF</span>
+      <div class="screen-mockup">
+        <img src="Page_Tela__1_.png" alt="Detalhes por UF sob o faturamento" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer style="padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
+  <p style="font-size: 0.8rem; color: var(--ink-faint);">© 2025 Stefânia Souza · Product Designer</p>
+  <p style="font-size: 0.8rem; color: var(--ink-faint);">Franca, SP · Brasil</p>
+</footer>
+
+<script>
+  // CHAT SYSTEM
+  const SYSTEM_PROMPT = `Você é um assistente de triagem do portfólio de Stefânia Souza, Product Designer sênior com 10 anos de experiência, sendo 6 focados em UX e produtos digitais. Responda sempre em terceira pessoa, de forma concisa e direta. Seu papel é ajudar recrutadores a entender rapidamente se Stefânia tem determinada experiência, habilidade ou perfil.
+
+PERFIL PROFISSIONAL:
+- Product Designer com foco em ciclo completo: discovery, pesquisa, prototipação, testes e entrega
+- Experiência em produtos B2B complexos, ERP, SaaS e aplicativos mobile
+- Atuação em times multidisciplinares com produto, engenharia e negócio
+- MBA em Gestão e Estratégia em UX pela ESPM
+- Instrutora convidada na Escola PM3 (prototipação com IA, 2025)
+- Atualmente na TOTVS (desde 2022), anteriormente na Corebiz (UX/UI, e-commerce VTEX)
+
+HABILIDADES:
+- Estratégia de produto e discovery
+- UX Research: entrevistas, testes de conceito, testes de usabilidade, surveys
+- Facilitação de workshops e dinâmicas de cocriação
+- Prototipação em baixa, média e alta fidelidade
+- Design de fluxos, jornadas e sistemas complexos
+- Design System e Visual Design
+- Análise de métricas e comportamento de usuários
+- Review técnico com engenharia antes de entregar para dev
+- Uso de IA no processo de design (prototipação com IA)
+Ferramentas: Figma, Maze, Hotjar, Google Analytics, Miro, Notion, Jira
+
+CASES:
+1. Monitor Tributário (TOTVS, 2024): Produto novo do zero para gestão fiscal de supermercados. Conduziu pesquisa com 21 clientes, estruturou geração de 27 ideias priorizadas para 9 via matriz de relevância, realizou review técnico com engenharia, 6 testes de usabilidade. 100% validaram valor. Produto lançado com churn baixo e receita recorrente. A pesquisa influenciou outras iniciativas do roadmap.
+
+2. Conciliação de Módulos — Análise de Estoque (TOTVS): Produto novo para resolver divergências crônicas entre estoques contábil, fiscal e gerencial. Metodologia em 2 camadas: pesquisa interna com times de suporte/serviço/produto + testes com clientes. 83% de aderência ao uso, 67% preveem redução de tempo no fechamento mensal. Em desenvolvimento.
+
+3. Minha Gestão de Lojas (TOTVS, 2024): Evolução de app mobile de monitoramento para ferramenta de ação. Discovery revelou 3 perfis não mapeados (conferente, supervisor, gerente de área) que redefiniu a arquitetura. 5 entrevistas remotas com gerentes. Produto premiado internamente como maior receita recorrente de 2024. Resultado público de cliente: 78% redução de perdas por validade e 21% aumento de vendas.
+
+4. Simulador da Reforma Tributária (TOTVS): Feature estratégica para projeção de débitos tributários 2026-2033. 7 testes com gerentes, coordenadores e analistas fiscais. Decisão de design baseada em testes (separação em dois gráficos). Feature desprioritizada com base em dados do discovery. Reduziu churn do produto.
+
+REGRAS:
+- Responda sempre em português
+- Terceira pessoa ("Stefânia tem...", "Sim, ela...")
+- Respostas concisas — máximo 3-4 frases
+- Se a habilidade existir, confirme e indique em qual case aparece
+- Se não existir nos dados, diga claramente que não há essa informação no portfólio
+- Nunca invente informações
+- Não divulgue nomes de clientes, dados financeiros internos ou informações sensíveis da TOTVS
+- Se perguntarem sobre contato, indique stefania.souzaponce@gmail.com`;
+
+  let chatHistory = [];
+  let isLoading = false;
+
+  function addMessage(role, text) {
+    const messages = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + role;
+    div.innerHTML = '<div class="chat-bubble">' + text + '</div>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
+  async function sendMessage() {
+    if (isLoading) return;
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = '';
+    addMessage('user', text);
+    chatHistory.push({ role: 'user', content: text });
+
+    // Hide suggestions after first message
+    const suggestions = document.querySelector('.chat-suggestions');
+    if (suggestions) suggestions.style.display = 'none';
+
+    isLoading = true;
+    const loadingMsg = addMessage('loading', 'Consultando o portfólio...');
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: chatHistory
+        })
+      });
+
+      const data = await response.json();
+      const reply = data.content?.[0]?.text || 'Não consegui processar a resposta.';
+
+      loadingMsg.remove();
+      addMessage('assistant', reply);
+      chatHistory.push({ role: 'assistant', content: reply });
+    } catch (err) {
+      loadingMsg.remove();
+      addMessage('assistant', 'Ocorreu um erro ao consultar. Tente novamente.');
+    }
+
+    isLoading = false;
+  }
+
+  function sendSuggestion(btn) {
+    const input = document.getElementById('chat-input');
+    input.value = btn.textContent;
+    sendMessage();
+  }
+
+  function scrollToChat(event) {
+    if (event) event.preventDefault();
+    // First make sure home page is visible
+    showPage('home');
+    // Then scroll to chat section after a brief delay
+    setTimeout(() => {
+      const chat = document.querySelector('.chat-section');
+      if (chat) chat.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
+  function showPage(pageId, event) {
+    if (event) event.preventDefault();
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.remove('active');
+      p.style.display = 'none';
+    });
+    const target = document.getElementById('page-' + pageId);
+    if (target) {
+      target.classList.add('active');
+      target.style.display = 'block';
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const navMap = { home: 'nav-cases', sobre: 'nav-sobre', perguntas: 'nav-perguntas' };
+    if (navMap[pageId]) {
+      document.getElementById(navMap[pageId])?.classList.add('active');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.page').forEach(p => { p.style.display = 'none'; });
+    const home = document.getElementById('page-home');
+    if (home) { home.style.display = 'block'; home.classList.add('active'); }
+  });
+</script>
+</body>
+</html>
