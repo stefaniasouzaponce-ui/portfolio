@@ -1045,6 +1045,244 @@
 
   /* NAV ACTIVE STATE */
   .nav-links a.active { color: var(--ink); border-bottom: 1px solid var(--ink); }
+  /* =====================
+     RESPONSIVE
+  ===================== */
+
+  /* TABLET — até 1024px */
+  @media (max-width: 1024px) {
+    nav {
+      padding: 1.25rem 2rem;
+    }
+
+    .hero {
+      padding: 6rem 2rem 3rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    .about-strip {
+      padding: 3rem 2rem;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .cases-section {
+      padding: 2rem 2rem 4rem;
+    }
+
+    .case-featured {
+      grid-template-columns: 1fr;
+    }
+
+    .case-content {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      padding: 2rem;
+    }
+
+    .case-visuals {
+      padding: 2rem;
+    }
+
+    .chat-section {
+      padding: 3rem 2rem;
+    }
+
+    .experience-section {
+      padding: 3rem 2rem;
+    }
+
+    .exp-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-section {
+      padding: 3rem 2rem;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .back-btn {
+      margin: 0 2rem 1.5rem;
+      padding-top: 5rem;
+    }
+
+    .case-detail-section {
+      padding: 3rem 2rem;
+    }
+
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .screens-strip {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* MOBILE — até 640px */
+  @media (max-width: 640px) {
+    nav {
+      padding: 1rem 1.25rem;
+    }
+
+    .nav-logo {
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+    }
+
+    .nav-cv {
+      padding: 0.4rem 0.8rem !important;
+      font-size: 0.72rem !important;
+    }
+
+    .hero {
+      padding: 5rem 1.25rem 2.5rem;
+      min-height: 50vh;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-desc {
+      font-size: 0.9rem;
+    }
+
+    .hero-tag {
+      font-size: 0.7rem;
+    }
+
+    .about-strip {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cases-section {
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .section-header {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+    }
+
+    .case-content {
+      padding: 1.5rem;
+    }
+
+    .case-content h3 {
+      font-size: 1.5rem;
+    }
+
+    .case-desc {
+      font-size: 0.88rem;
+    }
+
+    .case-visuals {
+      padding: 1.5rem;
+    }
+
+    .process-flow {
+      flex-wrap: wrap !important;
+      gap: 0.35rem !important;
+    }
+
+    .screen-data-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .insight-card {
+      font-size: 0.82rem;
+    }
+
+    .case-impact-card {
+      padding: 0.85rem 1rem;
+    }
+
+    .chat-section {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .chat-container {
+      border-radius: 12px;
+    }
+
+    .chat-messages {
+      padding: 1.25rem;
+    }
+
+    .experience-section {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .exp-compact-item {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+
+    .exp-compact-year {
+      font-size: 0.72rem;
+    }
+
+    .contact-section {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .contact-section h2 {
+      font-size: 2.2rem;
+    }
+
+    .back-btn {
+      margin: 0 1.25rem 1rem;
+      padding-top: 4.5rem;
+      font-size: 0.8rem;
+    }
+
+    .case-detail-section {
+      padding: 2rem 1.25rem;
+    }
+
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .screens-strip {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    footer {
+      padding: 1.5rem 1.25rem !important;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+
+    .about-strip h2 {
+      font-size: 2rem;
+    }
+  }
+
 </style>
 </head>
 <body>
