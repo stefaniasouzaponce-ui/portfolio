@@ -1445,16 +1445,8 @@
     color: #fff;
   }
 
-  .chat-panel-name {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  .chat-panel-sub {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.6);
-  }
+  .chat-panel-name { font-size: 0.88rem; font-weight: 500; color: #fff; }
+  .chat-panel-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
 
   .chat-panel-close {
     background: none;
@@ -1515,15 +1507,8 @@
   .chat-panel-send:hover { background: var(--accent-mid); }
 
   @media (max-width: 640px) {
-    .chat-panel {
-      width: calc(100vw - 2rem);
-      right: 1rem;
-      bottom: 5rem;
-    }
-    .chat-fab {
-      bottom: 1.25rem;
-      right: 1.25rem;
-    }
+    .chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5rem; }
+    .chat-fab { bottom: 1.25rem; right: 1.25rem; }
   }
 </style>
 </head>
@@ -2165,19 +2150,17 @@ REGRAS:
     chatHistory.push({ role: 'user', content: text });
 
     // Hide suggestions after first message
-    const suggestions = document.querySelector('.chat-suggestions');
+    const suggestions = document.querySelector('#chat-suggestions');
     if (suggestions) suggestions.style.display = 'none';
 
     isLoading = true;
     const loadingMsg = addMessage('loading', 'Consultando o portfólio...');
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
           system: SYSTEM_PROMPT,
           messages: chatHistory
         })
@@ -2203,6 +2186,18 @@ REGRAS:
     sendMessage();
   }
 
+  function scrollToChat(event) {
+    if (event) event.preventDefault();
+    // First make sure home page is visible
+    showPage('home');
+    // Then scroll to chat section after a brief delay
+    setTimeout(() => {
+      const chat = document.querySelector('.chat-section');
+      if (chat) chat.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
+
   function openChat(event) {
     if (event) event.preventDefault();
     const panel = document.getElementById('chat-panel');
@@ -2218,7 +2213,7 @@ REGRAS:
     }
   }
 
-  function showPage(pageId, event) {
+    function showPage(pageId, event) {
     if (event) event.preventDefault();
     document.querySelectorAll('.page').forEach(p => {
       p.classList.remove('active');
@@ -2246,8 +2241,9 @@ REGRAS:
 </script>
 
 <!-- FLOATING CHAT BUTTON -->
-<button class="chat-fab" onclick="toggleChat()" aria-label="Perguntar sobre o portfólio" title="Perguntar sobre o portfólio">
+<button class="chat-fab" onclick="toggleChat()" aria-label="Perguntar sobre o portfólio">
   <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span class="chat-fab-badge">IA</span>
 </button>
 
 <!-- CHAT PANEL -->
@@ -2262,19 +2258,16 @@ REGRAS:
     </div>
     <button class="chat-panel-close" onclick="toggleChat()">✕</button>
   </div>
-
   <div class="chat-panel-messages" id="chat-messages">
     <div class="chat-msg assistant">
       <div class="chat-bubble">Olá! Posso ajudar você a entender o perfil e a experiência de Stefânia. Pergunte sobre habilidades, metodologias ou tipos de projeto.</div>
     </div>
   </div>
-
   <div class="chat-panel-suggestions" id="chat-suggestions">
     <button class="chat-suggestion" onclick="sendSuggestion(this)">Tem experiência com discovery?</button>
     <button class="chat-suggestion" onclick="sendSuggestion(this)">Já trabalhou com mobile?</button>
     <button class="chat-suggestion" onclick="sendSuggestion(this)">Como conduz pesquisa?</button>
   </div>
-
   <div class="chat-panel-input-row">
     <input type="text" id="chat-input" class="chat-panel-input" placeholder="Ex: tem experiência com testes A/B?" onkeydown="if(event.key==='Enter') sendMessage()">
     <button class="chat-panel-send" onclick="sendMessage()">→</button>
