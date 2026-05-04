@@ -1365,7 +1365,7 @@
   .chat-fab svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .chat-panel {
     position: fixed; bottom: 5.5rem; right: 2rem; z-index: 998; width: 380px;
-    max-height: 560px; background: var(--white); border: 1px solid var(--line);
+    height: 520px; background: var(--white); border: 1px solid var(--line);
     border-radius: 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.14);
     display: flex; flex-direction: column; overflow: hidden;
     transform: scale(0.92) translateY(12px); opacity: 0; pointer-events: none;
@@ -1373,21 +1373,21 @@
     transform-origin: bottom right;
   }
   .chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
-  .chat-panel-header { padding: 1.1rem 1.25rem; background: var(--accent); display: flex; align-items: center; justify-content: space-between; }
+  .chat-panel-header { padding: 1.1rem 1.25rem; background: var(--accent); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
   .chat-panel-title { display: flex; align-items: center; gap: 0.6rem; }
   .chat-panel-avatar { width: 32px; height: 32px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 0.9rem; color: #fff; }
   .chat-panel-name { font-size: 0.88rem; font-weight: 500; color: #fff; }
   .chat-panel-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
   .chat-panel-close { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 1.2rem; padding: 0.25rem; display: flex; align-items: center; transition: color 0.2s; }
   .chat-panel-close:hover { color: #fff; }
-  .chat-panel-messages { flex: 1; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; overflow-y: auto; min-height: 200px; }
-  .chat-panel-suggestions { padding: 0 1rem 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .chat-panel-input-row { display: flex; border-top: 1px solid var(--line); }
+  .chat-panel-messages { flex: 1; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; overflow-y: auto; min-height: 0; }
+  .chat-panel-suggestions { padding: 0 1rem 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; flex-shrink: 0; }
+  .chat-panel-input-row { display: flex; border-top: 1px solid var(--line); flex-shrink: 0; }
   .chat-panel-input { flex: 1; padding: 0.85rem 1rem; border: none; outline: none; font-size: 0.88rem; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); }
   .chat-panel-send { padding: 0.85rem 1.1rem; background: var(--accent); color: #fff; border: none; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
   .chat-panel-send:hover { background: var(--accent-mid); }
   @media (max-width: 640px) {
-    .chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5rem; }
+    .chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5rem; height: 480px; }
     .chat-fab { bottom: 1.25rem; right: 1.25rem; }
   }
 
@@ -2033,10 +2033,6 @@
       <h4>5 · Validação com POs e devs</h4>
       <p>Realizei rodadas de feedback com os 3 squads, ajustando nomenclaturas, fluxos e recomendações visuais conforme as necessidades práticas de cada time. As alterações feitas pelos devs com base no material foram apresentadas e validadas em conjunto.</p>
     </div>
-    <div class="detail-block">
-      <h4>6 · Próximos passos</h4>
-      <p>Expandir os templates para fluxos mobile e integrar os exemplos diretamente na documentação do Design System — transformando o repositório de templates em uma extensão oficial do DS.</p>
-    </div>
   </div>
 
   <!-- DECISÃO DE DESIGN -->
@@ -2077,30 +2073,10 @@
     </div>
   </div>
 
-  <!-- IMPACTO QUALITATIVO -->
-  <div style="margin-top: 3rem; padding: 2rem; background: var(--accent); border-radius: 12px;">
-    <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem;">Impacto — adoção espontânea como validação</p>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
-      <div>
-        <p style="font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; line-height: 1;">10</p>
-        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">fluxos documentados e publicados no portal</p>
-      </div>
-      <div>
-        <p style="font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; line-height: 1;">3</p>
-        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">squads adotando os templates como referência</p>
-      </div>
-      <div>
-        <p style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: #fff; line-height: 1.2;">Autonomia</p>
-        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">POs e devs aplicando padrões sem depender de designer</p>
-      </div>
-    </div>
-    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
-      <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6; font-style: italic;">"O material virou referência espontânea para os times — POs agradeceram pela iniciativa e desenvolvedores passaram a buscar os templates antes de implementar qualquer manutenção."</p>
-      <p style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Feedback qualitativo dos times · TOTVS 2024</p>
-    </div>
-  </div>
-
   <!-- NOTA -->
+  <div style="margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--bg-alt); border-radius: 10px; border: 1px solid var(--line);">
+    <p style="font-size: 0.8rem; color: var(--ink-faint); line-height: 1.6;"><strong style="color: var(--ink-muted);">Nota:</strong> Por restrições de confidencialidade, os artefatos compartilhados representam uma seleção dos templates desenvolvidos. O repositório completo inclui outros fluxos não divulgados neste portfólio.</p>
+  </div>
   <div style="margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--bg-alt); border-radius: 10px; border: 1px solid var(--line);">
     <p style="font-size: 0.8rem; color: var(--ink-faint); line-height: 1.6;"><strong style="color: var(--ink-muted);">Nota:</strong> Por restrições de confidencialidade, os artefatos compartilhados representam uma seleção dos templates desenvolvidos. O repositório completo inclui outros fluxos não divulgados neste portfólio.</p>
   </div>
