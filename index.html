@@ -1666,17 +1666,32 @@
     <h2>Vamos <em>trabalhar<br>juntos?</em></h2>
   </div>
   <div class="contact-links">
-    <a href="mailto:stefania.souzaponce@gmail.com" class="contact-link">
+    <!-- EMAIL com botão copiar -->
+    <div class="contact-link" style="cursor:default;">
       <div>
         <p class="contact-link-label">E-mail</p>
         <p class="contact-link-value">stefania.souzaponce@gmail.com</p>
       </div>
+      <button onclick="copyEmail(this)" style="background:none;border:1px solid var(--line);border-radius:8px;padding:0.4rem 0.75rem;cursor:pointer;font-size:0.78rem;color:var(--ink-muted);font-family:'DM Sans',sans-serif;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--accent-mid)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink-muted)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        Copiar
+      </button>
+    </div>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/5516991665837" target="_blank" class="contact-link">
+      <div>
+        <p class="contact-link-label">WhatsApp</p>
+        <p class="contact-link-value">+55 (16) 99166-5837</p>
+      </div>
       <span class="contact-arrow">→</span>
     </a>
-    <a href="tel:+5516991665837" class="contact-link">
+
+    <!-- LINKEDIN -->
+    <a href="https://www.linkedin.com/in/stef%C3%A2nia-souza-5a6195b1/" target="_blank" class="contact-link">
       <div>
-        <p class="contact-link-label">Telefone</p>
-        <p class="contact-link-value">+55 (16) 99166-5837</p>
+        <p class="contact-link-label">LinkedIn</p>
+        <p class="contact-link-value">Stefânia Souza</p>
       </div>
       <span class="contact-arrow">→</span>
     </a>
@@ -2218,6 +2233,20 @@ REGRAS:
     const menu = document.getElementById('nav-mobile-menu');
     btn.classList.remove('open');
     menu.classList.remove('open');
+  }
+
+  function copyEmail(btn) {
+    navigator.clipboard.writeText('stefania.souzaponce@gmail.com').then(() => {
+      const original = btn.innerHTML;
+      btn.innerHTML = '✓ Copiado!';
+      btn.style.color = 'var(--accent)';
+      btn.style.borderColor = 'var(--accent)';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.color = '';
+        btn.style.borderColor = '';
+      }, 2000);
+    });
   }
 
   function clearChat() {
