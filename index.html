@@ -1355,160 +1355,102 @@
 
   /* FLOATING CHAT */
   .chat-fab {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 999;
-    width: 56px;
-    height: 56px;
-    background: var(--accent);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    width: 56px; height: 56px; background: var(--accent); border: none;
+    border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.18);
     transition: background 0.2s, transform 0.2s;
   }
   .chat-fab:hover { background: var(--accent-mid); transform: scale(1.07); }
   .chat-fab svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-  .chat-fab-badge {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    background: #e74c3c;
-    color: #fff;
-    font-size: 0.6rem;
-    font-weight: 700;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Sans', sans-serif;
-  }
-
   .chat-panel {
-    position: fixed;
-    bottom: 5.5rem;
-    right: 2rem;
-    z-index: 998;
-    width: 380px;
-    max-height: 560px;
-    background: var(--white);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.14);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transform: scale(0.92) translateY(12px);
-    opacity: 0;
-    pointer-events: none;
+    position: fixed; bottom: 5.5rem; right: 2rem; z-index: 998; width: 380px;
+    max-height: 560px; background: var(--white); border: 1px solid var(--line);
+    border-radius: 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+    display: flex; flex-direction: column; overflow: hidden;
+    transform: scale(0.92) translateY(12px); opacity: 0; pointer-events: none;
     transition: transform 0.22s cubic-bezier(.4,0,.2,1), opacity 0.22s;
     transform-origin: bottom right;
   }
-
-  .chat-panel.open {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .chat-panel-header {
-    padding: 1.1rem 1.25rem;
-    background: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .chat-panel-title {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .chat-panel-avatar {
-    width: 32px;
-    height: 32px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 0.9rem;
-    color: #fff;
-  }
-
+  .chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+  .chat-panel-header { padding: 1.1rem 1.25rem; background: var(--accent); display: flex; align-items: center; justify-content: space-between; }
+  .chat-panel-title { display: flex; align-items: center; gap: 0.6rem; }
+  .chat-panel-avatar { width: 32px; height: 32px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 0.9rem; color: #fff; }
   .chat-panel-name { font-size: 0.88rem; font-weight: 500; color: #fff; }
   .chat-panel-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
-
-  .chat-panel-close {
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.7);
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 0.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s;
-  }
+  .chat-panel-close { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 1.2rem; padding: 0.25rem; display: flex; align-items: center; transition: color 0.2s; }
   .chat-panel-close:hover { color: #fff; }
-
-  .chat-panel-messages {
-    flex: 1;
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    overflow-y: auto;
-    min-height: 200px;
-  }
-
-  .chat-panel-suggestions {
-    padding: 0 1rem 0.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .chat-panel-input-row {
-    display: flex;
-    border-top: 1px solid var(--line);
-  }
-
-  .chat-panel-input {
-    flex: 1;
-    padding: 0.85rem 1rem;
-    border: none;
-    outline: none;
-    font-size: 0.88rem;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--ink);
-    background: var(--white);
-  }
-
-  .chat-panel-send {
-    padding: 0.85rem 1.1rem;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
+  .chat-panel-messages { flex: 1; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.85rem; overflow-y: auto; min-height: 200px; }
+  .chat-panel-suggestions { padding: 0 1rem 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chat-panel-input-row { display: flex; border-top: 1px solid var(--line); }
+  .chat-panel-input { flex: 1; padding: 0.85rem 1rem; border: none; outline: none; font-size: 0.88rem; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); }
+  .chat-panel-send { padding: 0.85rem 1.1rem; background: var(--accent); color: #fff; border: none; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
   .chat-panel-send:hover { background: var(--accent-mid); }
-
   @media (max-width: 640px) {
     .chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5rem; }
     .chat-fab { bottom: 1.25rem; right: 1.25rem; }
+  }
+
+  /* HAMBURGER MENU */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    z-index: 200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+  }
+  .nav-mobile-menu a:hover { color: var(--accent-mid); }
+  .nav-mobile-menu .nav-cv-mobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #fff !important;
+    padding: 0.75rem 2rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
   }
 </style>
 </head>
@@ -1517,6 +1459,9 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo" onclick="showPage('home', event)">Stefânia Souza</a>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#" onclick="showPage('home', event)" id="nav-cases">Cases</a></li>
     <li><a href="#" onclick="showPage('sobre', event)" id="nav-sobre">Sobre mim</a></li>
@@ -1547,61 +1492,15 @@
 <!-- CASES SECTION -->
 <section class="cases-section" id="cases">
   <div class="section-header">
-    <span class="section-label">Trabalhos selecionados</span>
+    <span class="section-label">Trabalhos selecionados · 2 cases</span>
     <h2>Cases</h2>
-  </div>
-
-  <!-- CASE 01 — MONITOR TRIBUTÁRIO -->
-  <div class="case-featured" style="margin-top: 2rem;">
-    <div class="case-content">
-      <div>
-        <div class="case-number">Case 01</div>
-        <h3>Monitor Tributário</h3>
-        <p class="case-subtitle">TOTVS · Produto novo · ERP Fiscal · 2024</p>
-        <p class="case-desc">Times fiscais gerenciavam planejamento tributário com planilhas e consultorias externas — processo caro, fragmentado e sem escalabilidade. Conduzi pesquisa com 21 clientes, estruturei priorização via matriz de relevância e liderei os testes — entregando um produto que se consolidou como receita recorrente estratégica no portfólio ERP.</p>
-
-        <div class="case-impact-card" style="margin-top: 1.5rem;">
-          <p class="case-impact-label">Impacto além do produto</p>
-          <p class="case-impact-text">A pesquisa gerou outro case e despriorizou uma iniciativa de consultoria — evitando investimento na direção errada.</p>
-        </div>
-
-        <a href="#" onclick="showPage('case01', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
-      </div>
-    </div>
-    <div class="case-visuals">
-      <p class="visual-label">Etapas do projeto</p>
-      <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
-        <span class="process-step active">Pesquisa</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Ideação</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Priorização</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Protótipo</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Testes</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">MVP</span>
-      </div>
-      <div class="case-screen-placeholder">
-        <div class="screen-data-grid">
-          <div class="screen-data-item accent"><span class="sdi-val">21</span><span class="sdi-label">clientes · 39% dos contactados</span></div>
-          <div class="screen-data-item"><span class="sdi-val">3</span><span class="sdi-label">perfis de maturidade</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">100%</span><span class="sdi-label">validaram valor</span></div>
-        </div>
-      </div>
-      <div class="insight-card">
-        <p>"Produto consolidado como receita recorrente estratégica no portfólio ERP — com churn baixo e backlog de evolução contínua."</p>
-        <cite>Resultados pós-lançamento · TOTVS</cite>
-      </div>
-    </div>
   </div>
 
   <!-- CASE 02 — CONCILIAÇÃO -->
   <div class="case-featured" style="margin-top: 2rem;">
     <div class="case-content">
       <div>
-        <div class="case-number">Case 02</div>
+        <div class="case-number">Case 01</div>
         <h3>Conciliação de Módulos</h3>
         <p class="case-subtitle">TOTVS · Produto novo · ERP Contábil</p>
         <p class="case-desc">Divergências entre estoques contábil, fiscal e gerencial eram um problema crônico no ERP — sem causa raiz, sem autonomia do cliente e com alto custo de serviço. Defini a metodologia de discovery em duas camadas — interna e com clientes — e liderei a concepção de um produto que transformou um processo opaco em análise guiada com ação direta.</p>
@@ -1643,48 +1542,46 @@
     </div>
   </div>
 
-  <!-- CASE 03 — APP GESTÃO DE LOJAS -->
+  <!-- CASE DESIGN OPS -->
   <div class="case-featured" style="margin-top: 2rem;">
     <div class="case-content">
       <div>
-        <div class="case-number">Case 03</div>
-        <h3>Minha Gestão de Lojas</h3>
-        <p class="case-subtitle">TOTVS · Produto Mobile · Varejo Supermercadista</p>
-        <p class="case-desc">O app existia mas era um sistema de registro — não de ação. Gestores identificavam ocorrências mas as correções dependiam de outros canais. O discovery revelou 3 perfis de uso não mapeados no MVP, redefinindo a arquitetura da solução e transformando o app em ferramenta de decisão integrada ao ERP.</p>
+        <div class="case-number">Case 02</div>
+        <h3>Mapeamento de Padrões e Templates</h3>
+        <p class="case-subtitle">TOTVS · Design Ops · Design System · 2024</p>
+        <p class="case-desc">Times de produto realizavam manutenções sem padrão definido — gerando inconsistência visual e retrabalho. Liderei o mapeamento de 10 fluxos recorrentes, criei templates prontos para uso no Figma e documentei tudo no portal interno para que POs e desenvolvedores operassem com autonomia.</p>
 
         <div class="case-impact-card" style="margin-top: 1.5rem;">
-          <p class="case-impact-label">Impacto em cliente real</p>
-          <p class="case-impact-text">78% de redução de perdas por validade e 21% de aumento de vendas — resultado público após adoção.</p>
+          <p class="case-impact-label">Adoção espontânea</p>
+          <p class="case-impact-text">Os templates se tornaram referência para manutenções rápidas em 3 squads — sem depender de um designer em cada entrega.</p>
         </div>
 
-        <a href="#" onclick="showPage('case03', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
+        <a href="#" onclick="showPage('designops', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
       </div>
     </div>
     <div class="case-visuals">
       <p class="visual-label">Etapas do projeto</p>
       <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
-        <span class="process-step active">Pesquisa</span>
+        <span class="process-step active">Mapeamento</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Ideação</span>
+        <span class="process-step active">Templates</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Priorização</span>
+        <span class="process-step active">Documentação</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Protótipo</span>
+        <span class="process-step active">Capacitação</span>
         <span class="process-arrow">→</span>
-        <span class="process-step active">Testes</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">MVP</span>
+        <span class="process-step active">Validação</span>
       </div>
       <div class="case-screen-placeholder">
         <div class="screen-data-grid">
-          <div class="screen-data-item accent"><span class="sdi-val">78%</span><span class="sdi-label">redução de perdas por validade</span></div>
-          <div class="screen-data-item"><span class="sdi-val">+</span><span class="sdi-label">autonomia para o usuário</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">ERP</span><span class="sdi-label">integração para ações diretas</span></div>
+          <div class="screen-data-item accent"><span class="sdi-val">10</span><span class="sdi-label">fluxos documentados</span></div>
+          <div class="screen-data-item"><span class="sdi-val">3</span><span class="sdi-label">squads adotaram</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">DS</span><span class="sdi-label">consistência garantida</span></div>
         </div>
       </div>
       <div class="insight-card">
-        <p>Premiado na convenção interna da TOTVS como o produto com maior geração de receita recorrente em 2024.</p>
-        <cite>Destaque interno · Convenção TOTVS 2024</cite>
+        <p>"O material virou referência espontânea — devs buscavam os templates antes de implementar qualquer manutenção."</p>
+        <cite>Feedback qualitativo · TOTVS 2024</cite>
       </div>
     </div>
   </div>
@@ -1885,7 +1782,7 @@
 
 <section class="case-detail-section" id="case02-detail" style="background: var(--white);">
   <div class="section-header">
-    <span class="section-label">Case 02 · Conciliação de Módulos</span>
+    <span class="section-label">Case 01 · Conciliação de Módulos</span>
     <h2>O processo</h2>
   </div>
 
@@ -2077,6 +1974,136 @@
   </div>
 </section>
 </div>
+<!-- PAGE: CASE DESIGNOPS -->
+<div id="page-designops" class="page">
+  <button class="back-btn" onclick="showPage('home', event)">← Voltar para cases</button>
+<section class="case-detail-section" id="designops-detail" style="background: var(--white);">
+  <div class="section-header">
+    <span class="section-label">Case 02 · Design Ops</span>
+    <h2>O processo</h2>
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-block">
+      <h4>O problema</h4>
+      <p>Em um cenário com múltiplos times de produto, manutenções menores eram conduzidas por POs e desenvolvedores sem a participação direta de designers. Apesar de existir um Design System e um UI Kit estruturado, fluxos comuns eram montados de formas diferentes entre os produtos — gerando inconsistência visual, retrabalho e dúvidas recorrentes.</p>
+    </div>
+    <div class="detail-block">
+      <h4>Meu papel</h4>
+      <p>Liderei a iniciativa de ponta a ponta: mapeamento dos padrões existentes, análise de uso dos componentes do DS, criação dos templates no Figma, documentação no portal interno, capacitação dos times e rodadas de validação com POs e desenvolvedores de 3 squads.</p>
+    </div>
+    <div class="detail-block">
+      <h4>O resultado</h4>
+      <p>Repositório unificado com 10 fluxos documentados, adotado espontaneamente pelos times como referência para manutenções rápidas. POs e desenvolvedores passaram a aplicar os padrões com autonomia — sem depender de um designer em cada entrega.</p>
+    </div>
+  </div>
+
+  <!-- PROCESSO -->
+  <div style="margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--line);">
+    <p style="font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 0.5rem;">Como foi feito</p>
+    <h3 style="font-family: 'DM Serif Display', serif; font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 0.75rem;">De padrões dispersos a uma fundação compartilhada</h3>
+    <p style="font-size: 0.95rem; color: var(--ink-muted); max-width: 640px; line-height: 1.7;">O projeto foi conduzido de forma colaborativa e iterativa — partindo do mapeamento do que já existia até a entrega de uma biblioteca de templates prontos para uso, com documentação que qualquer pessoa do time conseguia seguir.</p>
+  </div>
+
+  <div class="detail-grid" style="margin-top: 2rem;">
+    <div class="detail-block">
+      <h4>1 · Mapeamento interno</h4>
+      <p>Identifiquei cerca de 10 fluxos recorrentes entre os produtos — cadastro de pessoa, edição de registros, upload de arquivos, envio de notificações. Esse mapeamento revelou onde o DS estava sendo usado corretamente e onde havia lacunas e divergências.</p>
+    </div>
+    <div class="detail-block">
+      <h4>2 · Templates visuais no Figma</h4>
+      <p>Criei templates prontos para uso com GIFs explicativos e exemplos de aplicação — permitindo que POs e desenvolvedores aplicassem os fluxos sem precisar interpretar o DS do zero. Cada template seguia as diretrizes de componentes já existentes.</p>
+    </div>
+    <div class="detail-block">
+      <h4>3 · Documentação no portal interno</h4>
+      <p>Documentei quando e como aplicar cada padrão: recomendações de contexto, boas práticas, exemplos visuais e links diretos para os templates no Figma. A linguagem foi pensada para POs e devs — não para designers.</p>
+    </div>
+  </div>
+
+  <div class="detail-grid" style="margin-top: 1.5rem;">
+    <div class="detail-block">
+      <h4>4 · Capacitação dos times</h4>
+      <p>Organizei uma news interna e uma vídeo-aula introdutória demonstrando o uso dos materiais. O objetivo era incentivar adoção espontânea — não criar dependência de treinamento contínuo.</p>
+    </div>
+    <div class="detail-block">
+      <h4>5 · Validação com POs e devs</h4>
+      <p>Realizei rodadas de feedback com os 3 squads, ajustando nomenclaturas, fluxos e recomendações visuais conforme as necessidades práticas de cada time. As alterações feitas pelos devs com base no material foram apresentadas e validadas em conjunto.</p>
+    </div>
+    <div class="detail-block">
+      <h4>6 · Próximos passos</h4>
+      <p>Expandir os templates para fluxos mobile e integrar os exemplos diretamente na documentação do Design System — transformando o repositório de templates em uma extensão oficial do DS.</p>
+    </div>
+  </div>
+
+  <!-- DECISÃO DE DESIGN -->
+  <div class="decision-card" style="margin-top: 3rem;">
+    <h4>Decisão central — documentar para quem não é designer</h4>
+    <p>A maior decisão do projeto foi calibrar a linguagem e o nível de detalhe para o público real: POs e desenvolvedores. Uma documentação de DS escrita para designers seria ignorada. Os GIFs explicativos, os exemplos de aplicação e a estrutura de "quando usar" foram escolhas deliberadas para garantir que o material fosse consultado — não arquivado.</p>
+  </div>
+
+  <!-- TELA 1 — NOVO CADASTRO -->
+  <div class="case-screen-full" style="margin-top: 3rem;">
+    <div class="screen-narrative">
+      <span class="screen-step">01</span>
+      <h4>Novo cadastro — padrão documentado</h4>
+      <p>O template de novo cadastro cobre desde o botão de ação até o comportamento de empty state, boas práticas de agrupamento de campos, diferenciação de obrigatório e opcional, e mensagens de erro. Cada decisão foi documentada com justificativa de UX — não só como fazer, mas por quê.</p>
+      <div class="decision-card" style="margin-top: 1rem;">
+        <h4>Decisão de design</h4>
+        <p>Documentar o empty state como parte do fluxo de cadastro — e não como estado isolado — foi uma decisão baseada nos erros mais comuns encontrados nos produtos: telas sem orientação para o primeiro acesso do usuário. O template inclui o texto de apoio como elemento obrigatório do padrão.</p>
+      </div>
+    </div>
+    <div class="screen-image">
+      <img src="novo_cadastro.gif" alt="Template de novo cadastro — fluxo completo com empty state e boas práticas">
+    </div>
+  </div>
+
+  <!-- TELA 2 — CADASTRO EM ETAPAS -->
+  <div class="case-screen-full case-screen-reverse" style="margin-top: 3rem;">
+    <div class="screen-narrative">
+      <span class="screen-step">02</span>
+      <h4>Cadastro em etapas — Stepper como padrão</h4>
+      <p>Para cadastros longos, o template define o uso do Stepper com navegação entre etapas e resumo final. A documentação explica por que o Stepper reduz abandono em formulários extensos — usando uma analogia que POs e devs já conhecem: o acompanhamento de pedidos em delivery.</p>
+      <div class="decision-card" style="margin-top: 1rem;">
+        <h4>Decisão de design</h4>
+        <p>Incluir a opção de voltar à etapa anterior e o resumo do que foi preenchido não foram sugestões — foram definidos como requisitos do padrão. A pesquisa com usuários em outros produtos da TOTVS mostrou que a falta dessas opções gerava frustração e repreenchimento desnecessário.</p>
+      </div>
+    </div>
+    <div class="screen-image">
+      <img src="cadastro_em_etapas.gif" alt="Template de cadastro em etapas — Stepper com navegação e resumo">
+    </div>
+  </div>
+
+  <!-- IMPACTO QUALITATIVO -->
+  <div style="margin-top: 3rem; padding: 2rem; background: var(--accent); border-radius: 12px;">
+    <p style="font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem;">Impacto — adoção espontânea como validação</p>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+      <div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; line-height: 1;">10</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">fluxos documentados e publicados no portal</p>
+      </div>
+      <div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: #fff; line-height: 1;">3</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">squads adotando os templates como referência</p>
+      </div>
+      <div>
+        <p style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: #fff; line-height: 1.2;">Autonomia</p>
+        <p style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem;">POs e devs aplicando padrões sem depender de designer</p>
+      </div>
+    </div>
+    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6; font-style: italic;">"O material virou referência espontânea para os times — POs agradeceram pela iniciativa e desenvolvedores passaram a buscar os templates antes de implementar qualquer manutenção."</p>
+      <p style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Feedback qualitativo dos times · TOTVS 2024</p>
+    </div>
+  </div>
+
+  <!-- NOTA -->
+  <div style="margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--bg-alt); border-radius: 10px; border: 1px solid var(--line);">
+    <p style="font-size: 0.8rem; color: var(--ink-faint); line-height: 1.6;"><strong style="color: var(--ink-muted);">Nota:</strong> Por restrições de confidencialidade, os artefatos compartilhados representam uma seleção dos templates desenvolvidos. O repositório completo inclui outros fluxos não divulgados neste portfólio.</p>
+  </div>
+
+</section>
+</div>
+
 <!-- FOOTER -->
 <footer style="padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between;">
   <p style="font-size: 0.8rem; color: var(--ink-faint);">© 2025 Stefânia Souza · Product Designer</p>
@@ -2150,7 +2177,7 @@ REGRAS:
     chatHistory.push({ role: 'user', content: text });
 
     // Hide suggestions after first message
-    const suggestions = document.querySelector('#chat-suggestions');
+    const suggestions = document.getElementById('chat-suggestions');
     if (suggestions) suggestions.style.display = 'none';
 
     isLoading = true;
@@ -2161,6 +2188,8 @@ REGRAS:
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
           system: SYSTEM_PROMPT,
           messages: chatHistory
         })
@@ -2186,17 +2215,29 @@ REGRAS:
     sendMessage();
   }
 
-  function scrollToChat(event) {
-    if (event) event.preventDefault();
-    // First make sure home page is visible
-    showPage('home');
-    // Then scroll to chat section after a brief delay
-    setTimeout(() => {
-      const chat = document.querySelector('.chat-section');
-      if (chat) chat.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+
+
+  function toggleMenu() {
+    const btn = document.getElementById('nav-hamburger');
+    const menu = document.getElementById('nav-mobile-menu');
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
   }
 
+  function closeMenu() {
+    const btn = document.getElementById('nav-hamburger');
+    const menu = document.getElementById('nav-mobile-menu');
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+  }
+
+  function clearChat() {
+    chatHistory = [];
+    const messages = document.getElementById('chat-messages');
+    messages.innerHTML = '<div class="chat-msg assistant"><div class="chat-bubble">Olá! Posso ajudar você a entender o perfil e a experiência de Stefânia. Pergunte sobre habilidades, metodologias ou tipos de projeto.</div></div>';
+    const suggestions = document.getElementById('chat-suggestions');
+    if (suggestions) suggestions.style.display = 'flex';
+  }
 
   function openChat(event) {
     if (event) event.preventDefault();
@@ -2213,7 +2254,18 @@ REGRAS:
     }
   }
 
-    function showPage(pageId, event) {
+  function scrollToChat(event) {
+    if (event) event.preventDefault();
+    // First make sure home page is visible
+    showPage('home');
+    // Then scroll to chat section after a brief delay
+    setTimeout(() => {
+      const chat = document.querySelector('.chat-section');
+      if (chat) chat.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+
+  function showPage(pageId, event) {
     if (event) event.preventDefault();
     document.querySelectorAll('.page').forEach(p => {
       p.classList.remove('active');
@@ -2240,10 +2292,18 @@ REGRAS:
   });
 </script>
 
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="nav-mobile-menu">
+  <a href="#" onclick="showPage('home', event); closeMenu()">Cases</a>
+  <a href="#" onclick="showPage('sobre', event); closeMenu()">Sobre mim</a>
+  <a href="#" onclick="openChat(event); closeMenu()">Perguntas</a>
+  <a href="#" class="nav-cv-mobile" onclick="alert('Adicione aqui o link do seu PDF'); closeMenu()">↓ Currículo</a>
+</div>
+
 <!-- FLOATING CHAT BUTTON -->
 <button class="chat-fab" onclick="toggleChat()" aria-label="Perguntar sobre o portfólio">
   <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  <span class="chat-fab-badge" style="display:none">IA</span>
 </button>
 
 <!-- CHAT PANEL -->
@@ -2256,7 +2316,10 @@ REGRAS:
         <div class="chat-panel-sub">Pergunte sobre Stefânia</div>
       </div>
     </div>
-    <button class="chat-panel-close" onclick="toggleChat()">✕</button>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <button onclick="clearChat()" style="background:none;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);cursor:pointer;font-size:0.7rem;font-family:'DM Sans',sans-serif;letter-spacing:0.04em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:100px;" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.6)';this.style.borderColor='rgba(255,255,255,0.25)'">Limpar</button>
+      <button class="chat-panel-close" onclick="toggleChat()">✕</button>
+    </div>
   </div>
   <div class="chat-panel-messages" id="chat-messages">
     <div class="chat-msg assistant">
