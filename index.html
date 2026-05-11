@@ -290,7 +290,7 @@
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink-faint);
+    color: var(--accent-mid);
   }
 
   .section-header h2 {
@@ -338,7 +338,7 @@
     display: block;
     width: 20px;
     height: 1px;
-    background: var(--accent-mid);
+    background: var(--accent);
   }
 
   .case-content h3 {
@@ -475,7 +475,7 @@
   .process-step.active {
     background: var(--accent-light);
     border-color: var(--accent-mid);
-    color: var(--accent);
+    color: var(--accent-mid);
   }
 
   .process-arrow { color: var(--line); font-size: 0.9rem; }
@@ -751,7 +751,7 @@
   .decision-card h4 {
     font-weight: 500;
     font-size: 0.9rem;
-    color: var(--accent);
+    color: var(--accent-mid);
     margin-bottom: 0.5rem;
   }
 
@@ -824,7 +824,8 @@
 
   .process-arrow {
     font-size: 0.75rem;
-    color: var(--line);
+    color: var(--accent-mid);
+    opacity: 0.6;
   }
 
   /* STANDARDIZED CARD COMPONENTS */
@@ -849,7 +850,7 @@
   }
 
   .case-screen-placeholder {
-    background: var(--bg-alt);
+    background: var(--bg);
     border: 1px solid var(--line);
     border-radius: 10px;
     overflow: hidden;
@@ -878,7 +879,7 @@
   .screen-data-item.accent .sdi-val,
   .screen-data-item.accent .sdi-label { color: #fff; }
   .screen-data-item.highlight { background: var(--accent-light); }
-  .screen-data-item.highlight .sdi-val { color: var(--accent); }
+  .screen-data-item.highlight .sdi-val { color: var(--accent-mid); }
   .screen-data-item.highlight .sdi-label { color: var(--accent-mid); }
 
   .sdi-val {
@@ -946,6 +947,8 @@
     overflow: hidden;
     border: 1px solid var(--line);
     box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    background: var(--bg);
+    padding: 1rem;
   }
 
   .screen-image img {
@@ -1046,7 +1049,7 @@
 
   .chat-suggestion:hover {
     border-color: var(--accent-mid);
-    color: var(--accent);
+    color: var(--accent-mid);
     background: var(--accent-light);
   }
 
@@ -1491,18 +1494,110 @@
 <!-- CASES SECTION -->
 <section class="cases-section" id="cases">
   <div class="section-header">
-    <span class="section-label">Trabalhos selecionados · 2 cases</span>
+    <span class="section-label">Trabalhos selecionados</span>
     <h2>Cases</h2>
   </div>
 
-  <!-- CASE 02 — CONCILIAÇÃO -->
+  <!-- CASE 01 — MONITOR TRIBUTÁRIO -->
   <div class="case-featured" style="margin-top: 2rem;">
     <div class="case-content">
       <div>
         <div class="case-number">Case 01</div>
+        <h3>Monitor Tributário</h3>
+        <p class="case-subtitle">TOTVS · Produto novo · ERP Fiscal · 2024</p>
+        <p class="case-desc">Times fiscais gerenciavam planejamento tributário com planilhas e consultorias externas — processo caro, fragmentado e sem escalabilidade. Conduzi pesquisa com 21 clientes, estruturei priorização via matriz de relevância e liderei os testes — entregando um produto que se consolidou como receita recorrente estratégica no portfólio ERP.</p>
+
+        <div class="case-impact-card" style="margin-top: 1.5rem;">
+          <p class="case-impact-label">Impacto além do produto</p>
+          <p class="case-impact-text">A pesquisa gerou outro case e despriorizou uma iniciativa de consultoria — evitando investimento na direção errada.</p>
+        </div>
+
+        <a href="#" onclick="showPage('case01', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
+      </div>
+    </div>
+    <div class="case-visuals">
+      <p class="visual-label">Etapas do projeto</p>
+      <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
+        <span class="process-step active">Pesquisa</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Ideação</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Priorização</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Protótipo</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Testes</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">MVP</span>
+      </div>
+      <div class="case-screen-placeholder">
+        <div class="screen-data-grid">
+          <div class="screen-data-item accent"><span class="sdi-val">21</span><span class="sdi-label">clientes · 39% dos contactados</span></div>
+          <div class="screen-data-item"><span class="sdi-val">3</span><span class="sdi-label">perfis de maturidade</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">100%</span><span class="sdi-label">validaram valor</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <p>"Produto consolidado como receita recorrente estratégica no portfólio ERP — com churn baixo e backlog de evolução contínua."</p>
+        <cite>Resultados pós-lançamento · TOTVS</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 02 — APP GESTÃO DE LOJAS -->
+  <div class="case-featured" style="margin-top: 2rem;">
+    <div class="case-content">
+      <div>
+        <div class="case-number">Case 02</div>
+        <h3>Minha Gestão de Lojas</h3>
+        <p class="case-subtitle">TOTVS · Produto Mobile · Varejo Supermercadista</p>
+        <p class="case-desc">O app existia mas era um sistema de registro — não de ação. Gestores identificavam ocorrências mas as correções dependiam de outros canais. O discovery revelou 3 perfis de uso não mapeados no MVP, redefinindo a arquitetura da solução e transformando o app em ferramenta de decisão integrada ao ERP.</p>
+
+        <div class="case-impact-card" style="margin-top: 1.5rem;">
+          <p class="case-impact-label">Impacto em cliente real</p>
+          <p class="case-impact-text">78% de redução de perdas por validade e 21% de aumento de vendas — resultado público após adoção.</p>
+        </div>
+
+        <a href="#" onclick="showPage('case03', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
+      </div>
+    </div>
+    <div class="case-visuals">
+      <p class="visual-label">Etapas do projeto</p>
+      <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
+        <span class="process-step active">Pesquisa</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Ideação</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Priorização</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Protótipo</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">Testes</span>
+        <span class="process-arrow">→</span>
+        <span class="process-step active">MVP</span>
+      </div>
+      <div class="case-screen-placeholder">
+        <div class="screen-data-grid">
+          <div class="screen-data-item accent"><span class="sdi-val">78%</span><span class="sdi-label">redução de perdas por validade</span></div>
+          <div class="screen-data-item"><span class="sdi-val">+</span><span class="sdi-label">autonomia para o usuário</span></div>
+          <div class="screen-data-item highlight"><span class="sdi-val">ERP</span><span class="sdi-label">integração para ações diretas</span></div>
+        </div>
+      </div>
+      <div class="insight-card">
+        <p>Premiado na convenção interna da TOTVS como o produto com maior geração de receita recorrente em 2024.</p>
+        <cite>Destaque interno · Convenção TOTVS 2024</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 03 — DASHBOARD DE ESTOQUE -->
+  <div class="case-featured" style="margin-top: 2rem;">
+    <div class="case-content">
+      <div>
+        <div class="case-number">Case 03</div>
         <h3>Dashboard de custo e estoque</h3>
-        <p class="case-subtitle"> Produto novo · ERP Contábil</p>
-        <p class="case-desc">Divergências entre estoques contábil, fiscal e gerencial eram um problema crônico no ERP, sem causa raiz, sem autonomia do cliente e com alto custo de serviço. Defini a metodologia de discovery em duas camadas: interna e com clientes e liderei a concepção de um produto que transformou o processo em análise guiada com ação direta.</p>
+        <p class="case-subtitle">TOTVS · Produto novo · ERP Contábil</p>
+        <p class="case-desc">Divergências entre estoques contábil, fiscal e gerencial eram um problema crônico no ERP — sem causa raiz, sem autonomia do cliente e com alto custo de serviço. Defini a metodologia de discovery em duas camadas — interna e com clientes — e liderei a concepção de um produto que transformou um processo opaco em análise guiada com ação direta.</p>
 
         <div class="case-impact-card" style="margin-top: 1.5rem;">
           <p class="case-impact-label">Validação interna</p>
@@ -1541,50 +1636,6 @@
     </div>
   </div>
 
-  <!-- CASE DESIGN OPS -->
-  <div class="case-featured" style="margin-top: 2rem;">
-    <div class="case-content">
-      <div>
-        <div class="case-number">Case 02</div>
-        <h3>Mapeamento de padrões de interface</h3>
-        <p class="case-subtitle"> Design Ops · Design System </p>
-        <p class="case-desc">Times de produto realizavam manutenções sem padrão definido, gerando inconsistência visual e retrabalho. Liderei o mapeamento de 18 fluxos recorrentes, criei templates prontos para uso no Figma e documentei tudo no portal interno para que POs e desenvolvedores operassem com autonomia.</p>
-
-        <div class="case-impact-card" style="margin-top: 1.5rem;">
-          <p class="case-impact-label">Consistência de design</p>
-          <p class="case-impact-text">Os templates guiam a manutenção de interfaces simples, mantendo a consistência visual e expreriência de navegação.</p>
-        </div>
-
-        <a href="#" onclick="showPage('designops', event)" class="btn-case" style="margin-top: 1.5rem;">Ver o case completo →</a>
-      </div>
-    </div>
-    <div class="case-visuals">
-      <p class="visual-label">Etapas do projeto</p>
-      <div class="process-flow" style="flex-wrap: nowrap; gap: 0.35rem;">
-        <span class="process-step active">Mapeamento</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Templates</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Documentação</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Capacitação</span>
-        <span class="process-arrow">→</span>
-        <span class="process-step active">Validação</span>
-      </div>
-      <div class="case-screen-placeholder">
-        <div class="screen-data-grid">
-          <div class="screen-data-item accent"><span class="sdi-val">10</span><span class="sdi-label">fluxos web documentados</span></div>
-          <div class="screen-data-item"><span class="sdi-val">8</span><span class="sdi-label">fluxos mobile documentados</span></div>
-          <div class="screen-data-item highlight"><span class="sdi-val">DS</span><span class="sdi-label">consistência garantida</span></div>
-        </div>
-      </div>
-      <div class="insight-card">
-        <p>"O material virou referência espontânea, devs buscavam os templates antes de implementar a manutenção e para validação"</p>
-        <cite>Feedback qualitativo</cite>
-      </div>
-    </div>
-  </div>
-
 </section>
 </section>
 
@@ -1600,7 +1651,7 @@
   </div>
   <div class="about-right">
     <p class="about-text">
-      Product Designer com experiência no ciclo completo, da descoberta à entrega.
+      Product Designer com experiência no ciclo completo — da descoberta à entrega.
       Atuo conectando design a objetivos de negócio em produtos complexos com múltiplos
       perfis de usuário, desde o operacional de chão de loja até a diretoria. Estruturo
       processos de discovery orientados por dados e pesquisa, com foco em engajamento,
@@ -2027,7 +2078,7 @@
   <div class="detail-grid" style="margin-top: 1.5rem;">
     <div class="detail-block">
       <h4>4 · Capacitação dos times</h4>
-      <p>Organizei uma news interna e uma vídeo-aula introdutória demonstrando o uso dos materiais. O objetivo era incentivar adoção espontânea , não criar dependência de treinamento contínuo.</p>
+      <p>Organizei uma news interna e uma vídeo-aula introdutória demonstrando o uso dos materiais. O objetivo era incentivar adoção espontânea — não criar dependência de treinamento contínuo.</p>
     </div>
     <div class="detail-block">
       <h4>5 · Validação com POs e devs</h4>
